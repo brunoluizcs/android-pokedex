@@ -12,7 +12,7 @@ import com.becarios.pokedex.R
 class PokemonsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
+        setContentView(R.layout.activity_pokemons)
         backGroundColor()
     }
 
