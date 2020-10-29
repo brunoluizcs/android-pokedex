@@ -9,5 +9,9 @@
     <string name="description">A Pokédex, também conhecida como Poké-Agenda aqui no Brasil é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registra todas as espécies diferentes de Pokémon que são encontradas durante a sua viagem como treinadores.</string>
     <string name="back_button">botão voltar</string>
 
+    <!-- Activity Header Home -->
+    <string name="titleHome">Pokemons</string>
+
+
 
 </resources>
