@@ -10,4 +10,5 @@ interface PokemonService {
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
     ): retrofit2.Call<PokemonRootResponse>
+    teste
 }
