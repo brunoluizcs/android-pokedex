@@ -11,6 +11,8 @@
 
     <!-- Activity Header Home -->
     <string name="titleHome">Pokemons</string>
+    <string name="searchButton">Search</string>
+
 
 
 
