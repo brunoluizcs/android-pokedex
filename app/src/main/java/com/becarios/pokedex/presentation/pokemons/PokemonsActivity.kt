@@ -12,7 +12,7 @@ import com.becarios.pokedex.R
 class PokemonsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_pokemons)
         backGroundColor()
     }
 
@@ -22,5 +22,10 @@ class PokemonsActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, android.R.color.transparent)
         window.setBackgroundDrawableResource(R.drawable.splash_gradient_light)
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
+    }
+
+    fun pokemonType(){
+        pokemon_type_one.contentDescription = "Pokemon do tipo grama"
+        pokemon_type_two.contentDescription = "e veneno"
     }
 }

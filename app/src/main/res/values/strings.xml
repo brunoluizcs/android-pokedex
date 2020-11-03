@@ -16,4 +16,11 @@
 
 
 
+    <!-- Activity Pokemons-->
+    <string name="pokemon_n">#</string>
+    <string name="pokemon_id">001</string>
+    <string name="pokemon_name">Bulbasour</string>
+    <string name="pokedex_number">Número da pokedéx</string>
+    <string name="pokemon_type">""</string>
+
 </resources>
