@@ -1,4 +1,5 @@
 package com.becarios.pokedex.data.response.listagem
+
 import com.squareup.moshi.JsonClass
 
 
