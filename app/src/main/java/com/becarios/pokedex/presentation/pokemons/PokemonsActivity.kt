@@ -12,12 +12,12 @@ import com.becarios.pokedex.R
 class PokemonsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pokemons)
-        backGroundColor()
+        setContentView(R.layout.activity_about)
+        setBackGroundColor()
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun backGroundColor() {
+    fun setBackGroundColor() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, android.R.color.transparent)
         window.setBackgroundDrawableResource(R.drawable.splash_gradient_light)

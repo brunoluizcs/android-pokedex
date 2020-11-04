@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dimens activity_about -->
+    <dimen name="activity_horizontal_margin">22dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="txtTitleAbout">20sp</dimen>
+    <dimen name="txtTitle">19sp</dimen>
+    <dimen name="txtDescription">15sp</dimen>
+    <dimen name="txtVersion">19sp</dimen>
+    <dimen name="txtVersionNumber">16sp</dimen>
+
+</resources>
