@@ -27,14 +27,17 @@
         app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <TextView
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:fontFamily="@font/avenir_medium"
         android:id="@+id/textView2"
         android:layout_width="205dp"
         android:layout_height="27dp"
         android:layout_marginTop="11dp"
+        android:accessibilityHeading="true"
+        android:focusable="true"
+        android:fontFamily="@font/avenir_medium"
+        android:importantForAccessibility="yes"
         android:text="@string/titleHome"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,25 +49,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/infoButton"
+        android:importantForAccessibility="yes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_help_outline" />
 
     <SearchView
-        android:fontFamily="@font/avenir_medium"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/background_search_button"
+        android:contentDescription="@string/SpecSearchButton"
+        android:fontFamily="@font/avenir_medium"
         android:iconifiedByDefault="false"
+        android:importantForAccessibility="yes"
         android:orientation="horizontal"
         android:queryBackground="@android:color/transparent"
         android:queryHint="@string/searchButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

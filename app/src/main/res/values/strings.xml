@@ -12,6 +12,10 @@
     <!-- Activity Header Home -->
     <string name="titleHome">Pokemons</string>
     <string name="searchButton">Search</string>
+    <string name="infoButton">Sobre o aplicativo</string>
+    <string name="SpecSearchButton">Pesquisar por um pokémon</string>
+
+
 
 
 
