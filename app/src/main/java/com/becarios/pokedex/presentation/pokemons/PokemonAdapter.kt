@@ -41,10 +41,11 @@ class PokemonAdapter (
             val string = pokemon.url
             val stringSplit = string.split("/").map { it.trim() }
 
-
+            var num = 10
             name.text = pokemon.name
             val id = stringSplit[6]
-            url.text = ("#${id}")
+
+                url.text = ("0${id}")
 
 
             Glide.with(itemView)

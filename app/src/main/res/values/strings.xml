@@ -15,11 +15,6 @@
     <string name="infoButton">Sobre o aplicativo</string>
     <string name="SpecSearchButton">Pesquisar por um pokémon</string>
 
-
-
-
-
-
     <!-- Activity Pokemons-->
     <string name="pokemon_n">#</string>
     <string name="pokemon_id">001</string>
