@@ -45,6 +45,7 @@ dependencies {
     //square retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")
     implementation("com.squareup.moshi:moshi-kotlin:1.9.3")
 
