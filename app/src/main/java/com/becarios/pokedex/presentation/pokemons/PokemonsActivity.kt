@@ -7,13 +7,38 @@ import android.view.View
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.becarios.pokedex.R
+import com.becarios.pokedex.presentation.details.PokemonsDetailsActivity
+import kotlinx.android.synthetic.main.activity_pokemons.*
+import kotlinx.android.synthetic.main.pokemon_recycler_item.*
 
 class PokemonsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemons)
         backGroundColor()
+
+        val viewModel: PokemonViewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
+
+        viewModel.mLiveData.observe(this, Observer {
+            it?.let { pokemons ->
+                with(recyclerView) {
+                    layoutManager = GridLayoutManager(this@PokemonsActivity, 1)
+                    setHasFixedSize(true)
+                    adapter = PokemonAdapter(pokemons) { pokemon ->
+                        val intent = PokemonsDetailsActivity.getStartInt(
+                            this@PokemonsActivity,
+                            pokemon.name
+                        )
+                        this@PokemonsActivity.startActivity(intent)
+                    }
+                }
+            }
+        })
+        viewModel.getPokemon()
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -24,7 +49,7 @@ class PokemonsActivity : AppCompatActivity() {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 
-    fun pokemonType(){
+    fun pokemonType() {
         pokemon_type_one.contentDescription = "Pokemon do tipo grama"
         pokemon_type_two.contentDescription = "e veneno"
     }

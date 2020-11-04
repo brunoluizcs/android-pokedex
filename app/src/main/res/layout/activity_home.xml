@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha="1"
-    android:background="@android:color/white"
-    tools:context=".presentation.headerHome.HomeActivity">
+    android:background="@android:color/white">
 
     <View
         android:id="@+id/view4"
