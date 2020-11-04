@@ -1,7 +1,6 @@
 package com.becarios.pokedex.presentation.intro
 
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -9,7 +8,6 @@ import android.view.View
 import android.view.WindowManager
 import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.pokemons.PokemonsActivity
-import java.util.*
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
@@ -19,15 +17,16 @@ class SplashActivity : AppCompatActivity() {
 
         hideStatusBarAndFullScreen()
         delayStartActivity()
-
     }
 
     private fun hideStatusBarAndFullScreen() {
         window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         window.decorView.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+            systemUiVisibility =
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
     }
 

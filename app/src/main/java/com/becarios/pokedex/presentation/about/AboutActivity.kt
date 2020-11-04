@@ -11,7 +11,7 @@ class AboutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
 
-        backButtonAbout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+        backButtonAbout.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
 
     }
 }
