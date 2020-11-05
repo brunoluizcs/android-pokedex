@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -39,6 +41,37 @@ class PokemonsActivity : AppCompatActivity() {
             }
         })
         viewModel.getPokemon()
+
+        viewModel._mLiveData.observe(this, Observer {
+            it?.let { pokemons ->
+                with(recyclerView) {
+                    layoutManager = GridLayoutManager(this@PokemonsActivity, 1)
+                    setHasFixedSize(true)
+                    adapter = PokemonIdAdapter(pokemons) { pokemon ->
+                        val intent = PokemonsDetailsActivity.getStartInt(
+                            this@PokemonsActivity,
+                            pokemon.name
+                        )
+                        this@PokemonsActivity.startActivity(intent)
+                    }
+                }
+            }
+        })
+
+        searchHeader.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                viewModel.getPokemonId(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                if(newText != ""){
+                    viewModel.getPokemonId(newText)
+                }else
+                    viewModel.getPokemon()
+                return false
+            }
+        })
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

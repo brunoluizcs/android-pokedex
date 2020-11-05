@@ -6,15 +6,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.becarios.pokedex.R
 import com.becarios.pokedex.data.model.Pokemons
+import com.becarios.pokedex.data.model.PokemonsId
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.pokemon_recycler_item.view.*
 
-class PokemonAdapter(
-    private val pokemons: List<Pokemons>,
-    val onItemClickListener: ((pokemon: Pokemons) -> Unit)
+class PokemonIdAdapter (
+    private val pokemons: List<PokemonsId>,
+    val onItemClickListener: ((pokemon: PokemonsId) -> Unit)
 ) :
-    RecyclerView.Adapter<PokemonAdapter.PokemonsViewHolder>() {
-
+    RecyclerView.Adapter<PokemonIdAdapter.PokemonsViewHolder>() {
+    val pokemonsCount = 1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.pokemon_recycler_item, parent, false)
@@ -25,27 +26,22 @@ class PokemonAdapter(
         viewholder.bindView(pokemons[position])
     }
 
-    override fun getItemCount() = pokemons.count()
+    override fun getItemCount() = pokemonsCount
 
     class PokemonsViewHolder(
         itemView: View,
-        private val onItemClickListener: ((pokemon: Pokemons) -> Unit)
+        private val onItemClickListener: ((pokemon: PokemonsId) -> Unit)
     ) : RecyclerView.ViewHolder(itemView) {
         private val name = itemView.txt_pokemon_name
-        private val url = itemView.txt_pokemon_id
-
         private val id = itemView.txt_pokemon_id
+
         private val image = itemView.imagePokemon
 
-        fun bindView(pokemon: Pokemons) {
-            val string = pokemon.url
-            val stringSplit = string.split("/").map { it.trim() }
+        fun bindView(pokemon: PokemonsId) {
 
-            var num = 10
             name.text = pokemon.name
-            val id = stringSplit[6]
-
-            url.text = ("0${id}")
+            id.text = pokemon.id
+            val id = pokemon.id
 
 
             Glide.with(itemView)
