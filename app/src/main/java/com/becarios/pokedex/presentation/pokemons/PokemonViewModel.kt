@@ -13,43 +13,55 @@ import retrofit2.Response
 
 class PokemonViewModel : ViewModel() {
     val mLiveData: MutableLiveData<List<Pokemons>> = MutableLiveData()
+    val pokemonsList: MutableList<Pokemons> = mutableListOf()
     val _mLiveData: MutableLiveData<List<PokemonsId>> = MutableLiveData()
-    var limit = 200
-    var offset = 0
+
+    var pokemonCount = 1
+    val limit = 51
+    var progress = false
 
     fun getPokemon() {
 
-        APIService.service.getPokemons(limit, offset)
-            .enqueue(object : Callback<PokemonRootResponse> {
-                override fun onResponse(
-                    call: Call<PokemonRootResponse>,
-                    response: Response<PokemonRootResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val pokemonsList: MutableList<Pokemons> = mutableListOf()
-                        response.body()?.let { pokemonsResponse ->
+        APIService.service.getPokemonsId(pokemonCount)
+            .enqueue(
+                object : Callback<PokemonRootResponse> {
+                    override fun onResponse(
+                        call: Call<PokemonRootResponse>,
+                        response: Response<PokemonRootResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            response.body()?.let { pokemonsType ->
 
-                            for (results in pokemonsResponse.results) {
                                 val pokemon = Pokemons(
-                                    name = results.name,
-                                    url = results.url
+                                    id = pokemonsType.id,
+                                    name = pokemonsType.name,
+                                    typeName1 = pokemonsType.types[0].type.name,
+                                    typeName2 = pokemonsType.types.last().type.name
                                 )
-                                pokemonsList.add(pokemon)
-                            }
-                        }
-                        mLiveData.value = pokemonsList
-                    }
-                }
 
-                override fun onFailure(call: Call<PokemonRootResponse>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
+                                pokemonCount++
+                                if (pokemonCount <= limit) {
+                                    pokemonsList.add(pokemon)
+                                    getPokemon()
+                                } else {
+                                    progress = true
+                                }
+                            }
+                            mLiveData.value = pokemonsList
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PokemonRootResponse>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
+
     }
 
     fun getPokemonId(pokemonId: String) {
 
-        APIService.service.getPokemonsId(pokemonId)
+       APIService.service.getPokemonId(pokemonId)
             .enqueue(object : Callback<PokemonIdResult> {
                 override fun onResponse(
                     call: Call<PokemonIdResult>,
@@ -62,7 +74,9 @@ class PokemonViewModel : ViewModel() {
                             for (results in pokemonsResponse.name) {
                                 val pokemon = PokemonsId(
                                     name = pokemonsResponse.name,
-                                    id = pokemonsResponse.id
+                                    id = pokemonsResponse.id,
+                                    typeName1 = pokemonsResponse.types[0].type.name,
+                                    typeName2 = pokemonsResponse.types.last().type.name
                                 )
                                 pokemonsList.add(pokemon)
                             }
