@@ -67,8 +67,8 @@ class PokemonsActivity : AppCompatActivity() {
         })
     }
 
-    fun pokemonType() {
-        pokemon_type_one.contentDescription = "Pokemon do tipo grama"
-        pokemon_type_two.contentDescription = "e veneno"
+    fun pokemonType(typeName1: String, typeName2: String) {
+        pokemon_type_one.contentDescription = "Pokemon do tipo $typeName1"
+        pokemon_type_two.contentDescription = "e $typeName2"
     }
 }
