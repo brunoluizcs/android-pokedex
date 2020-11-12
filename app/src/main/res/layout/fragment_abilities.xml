@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lytAbility1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_22_dp"
+        android:layout_marginEnd="@dimen/default_size_22_dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/ability1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirmedium"
+            android:text="Torrent"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_text_19_sp" />
+
+        <TextView
+            android:id="@+id/dscAbility1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirbook"
+            android:text="When this Pokémon has 1/3 or less of its HP remaining, its water-type moves inflict 1.5× as much regular damage."
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/default_text_15_sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lytAbility2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_22_dp"
+        android:layout_marginTop="@dimen/default_size_15_dp"
+        android:layout_marginEnd="@dimen/default_size_22_dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lytAbility1">
+
+        <TextView
+            android:id="@+id/ability2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirmedium"
+            android:text="Rain Dish"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_text_19_sp" />
+
+        <TextView
+            android:id="@+id/dscAbility2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirbook"
+            android:text="This Pokémon heals for 1/16 of its maximum HP after each turn during rain."
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/default_text_15_sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

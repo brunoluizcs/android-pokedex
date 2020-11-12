@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/default_size_4_dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="@dimen/default_size_30_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_33_dp"
+        android:fontFamily="@font/avenirmedium"
+        android:text="HP"
+        android:textColor="@color/water"
+        android:textSize="@dimen/default_text_12_sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="@dimen/default_size_30_dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenirmedium"
+        android:gravity="end"
+        android:text="000"
+        android:textSize="@dimen/default_text_14_sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_size_8_dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/default_size_8_dp"
+        android:layout_marginEnd="@dimen/default_size_33_dp"
+        android:indeterminate="false"
+        android:max="8"
+        android:progress="6"
+        android:progressDrawable="@drawable/degrade_progress_bar" />
+</LinearLayout>
