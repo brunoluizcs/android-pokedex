@@ -4,12 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.WindowManager
 import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.pokemons.PokemonsActivity
 
-@Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun delayStartActivity() {
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this@SplashActivity, PokemonsActivity::class.java))
             finish()
         }, 3000)

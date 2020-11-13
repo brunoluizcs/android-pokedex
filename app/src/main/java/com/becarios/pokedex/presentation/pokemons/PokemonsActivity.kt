@@ -2,21 +2,32 @@ package com.becarios.pokedex.presentation.pokemons
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
+import android.view.WindowManager
 import android.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.details.PokemonsDetailsActivity
 import kotlinx.android.synthetic.main.activity_pokemons.*
 import kotlinx.android.synthetic.main.pokemon_recycler_item.*
+import java.lang.Thread.sleep
 
 class PokemonsActivity : AppCompatActivity() {
+
+    lateinit var layoutManager: LinearLayoutManager
+    var loading = false
+    var limit = 20
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        layoutManager = LinearLayoutManager(this)
         setContentView(R.layout.activity_pokemons)
-
-        val viewModel: PokemonViewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
 
         viewModel.mLiveData.observe(this, Observer {
             it?.let { pokemons ->
@@ -29,7 +40,42 @@ class PokemonsActivity : AppCompatActivity() {
                             pokemon.name
                         )
                         this@PokemonsActivity.startActivity(intent)
+
                     }
+                    addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+
+                            if (dy > 0) {
+                                var visibleItemCount =
+                                    (layoutManager as GridLayoutManager).childCount
+                                var pastVisibleItem =
+                                    (layoutManager as GridLayoutManager).findFirstCompletelyVisibleItemPosition()
+                                val total2 = visibleItemCount + pastVisibleItem
+
+                                if (!loading && (total2) >= pokemons.size) {
+
+                                    loading = true
+                                    limit += 11
+                                    viewModel.getPokemonPage(limit)
+                                    progressBar.visibility = (View.VISIBLE)
+                                    Handler(Looper.getMainLooper()).postDelayed({
+                                        viewModel.mLiveData.observe(this@PokemonsActivity, Observer {
+                                            it?.let { pokemons ->
+                                                with(recyclerView) {
+                                                    adapter?.notifyItemInserted(pokemons.lastIndex)
+                                                }
+                                            }
+                                            progressBar.visibility = (View.GONE)
+                                            loading = false
+                                        })
+
+                                    },500)
+                                }
+                            }
+
+                            super.onScrolled(recyclerView, dx, dy)
+                        }
+                    })
                 }
             }
         })
@@ -67,8 +113,4 @@ class PokemonsActivity : AppCompatActivity() {
         })
     }
 
-    fun pokemonType(typeName1: String, typeName2: String) {
-        pokemon_type_one.contentDescription = "Pokemon do tipo $typeName1"
-        pokemon_type_two.contentDescription = "e $typeName2"
-    }
 }

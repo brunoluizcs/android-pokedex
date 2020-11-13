@@ -16,19 +16,19 @@ class PokemonViewModel : ViewModel() {
     val pokemonsList: MutableList<Pokemons> = mutableListOf()
     val _mLiveData: MutableLiveData<List<PokemonsId>> = MutableLiveData()
 
-    var pokemonCount = 1
-    val limit = 51
-    var progress = false
+    var pokemonId = 1
+    val limitPokemons = 20
 
     fun getPokemon() {
 
-        APIService.service.getPokemonsId(pokemonCount)
+        APIService.service.getPokemonsId(pokemonId)
             .enqueue(
                 object : Callback<PokemonRootResponse> {
                     override fun onResponse(
                         call: Call<PokemonRootResponse>,
                         response: Response<PokemonRootResponse>
                     ) {
+
                         if (response.isSuccessful) {
                             response.body()?.let { pokemonsType ->
 
@@ -39,12 +39,10 @@ class PokemonViewModel : ViewModel() {
                                     typeName2 = pokemonsType.types.last().type.name
                                 )
 
-                                pokemonCount++
-                                if (pokemonCount <= limit) {
+                                if (pokemonId <= limitPokemons) {
                                     pokemonsList.add(pokemon)
+                                    pokemonId++
                                     getPokemon()
-                                } else {
-                                    progress = true
                                 }
                             }
                             mLiveData.value = pokemonsList
@@ -56,12 +54,11 @@ class PokemonViewModel : ViewModel() {
                     }
 
                 })
-
     }
 
     fun getPokemonId(pokemonId: String) {
 
-       APIService.service.getPokemonId(pokemonId)
+        APIService.service.getPokemonId(pokemonId)
             .enqueue(object : Callback<PokemonIdResult> {
                 override fun onResponse(
                     call: Call<PokemonIdResult>,
@@ -89,5 +86,39 @@ class PokemonViewModel : ViewModel() {
                     TODO("Not yet implemented")
                 }
             })
+    }
+
+    fun getPokemonPage(limitPage: Int) {
+
+        APIService.service.getPokemonsId(pokemonId)
+            .enqueue(
+                object : Callback<PokemonRootResponse> {
+                    override fun onResponse(
+                        call: Call<PokemonRootResponse>,
+                        response: Response<PokemonRootResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            response.body()?.let { pokemonsType ->
+
+                                val pokemon = Pokemons(
+                                    id = pokemonsType.id,
+                                    name = pokemonsType.name,
+                                    typeName1 = pokemonsType.types[0].type.name,
+                                    typeName2 = pokemonsType.types.last().type.name
+                                )
+
+                                if (pokemonId <= limitPage) {
+                                    pokemonsList.add(pokemon)
+                                    pokemonId++
+                                    getPokemonPage(limitPage)
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PokemonRootResponse>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+                })
     }
 }

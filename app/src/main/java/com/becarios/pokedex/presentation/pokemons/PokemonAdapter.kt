@@ -49,17 +49,19 @@ class PokemonAdapter(
                 onItemClickListener.invoke(pokemon)
             }
 
-            if (pokemon.typeName1 == pokemon.typeName2)
+            var connector = ""
+            if (pokemon.typeName1 == pokemon.typeName2) {
                 itemView.pokemon_type_two.visibility = View.GONE
+            }
 
 
             when (pokemon.typeName1) {
                 "fire" -> {
-                    val typeNamePtBr_1 = "fogo"
+                    val typeNamePtBr1 = "fogo"
                     itemView.pokemon_type_one.visibility = View.VISIBLE
                     itemView.pokemon_type_one.setImageResource(R.drawable.fire)
                     itemView.pokemon_type_one.setBackgroundResource(R.drawable.circle_fire)
-                    itemView.pokemon_type_one.contentDescription = "Pokemon do tipo $typeNamePtBr_1"
+                    itemView.pokemon_type_one.contentDescription = "Pokemon do tipo $typeNamePtBr1"
                 }
                 "water" -> {
                     val typeNamePtBr_1 = "agua"
@@ -159,6 +161,20 @@ class PokemonAdapter(
                     itemView.pokemon_type_one.setBackgroundResource(R.drawable.circle_dark)
                     itemView.pokemon_type_one.contentDescription = "Pokemon do tipo $typeNamePtBr_1"
                 }
+                "ghost" -> {
+                    val typeNamePtBr_1 = "fantasma"
+                    itemView.pokemon_type_one.visibility = View.VISIBLE
+                    itemView.pokemon_type_one.setImageResource(R.drawable.ghost)
+                    itemView.pokemon_type_one.setBackgroundResource(R.drawable.circle_ghost)
+                    itemView.pokemon_type_one.contentDescription = "Pokemon do tipo $typeNamePtBr_1"
+                }
+                "steel" -> {
+                    val typeNamePtBr_2 = "metal"
+                    itemView.pokemon_type_one.visibility = View.VISIBLE
+                    itemView.pokemon_type_one.setImageResource(R.drawable.iron)
+                    itemView.pokemon_type_one.setBackgroundResource(R.drawable.circle_iron)
+                    itemView.pokemon_type_one.contentDescription = "Pokemon do tipo $typeNamePtBr_2"
+                }
                 "normal" -> {
                     val typeNamePtBr_1 = "normal"
                     itemView.pokemon_type_one.visibility = View.VISIBLE
@@ -170,12 +186,15 @@ class PokemonAdapter(
                     itemView.pokemon_type_one.visibility = View.VISIBLE
                     itemView.pokemon_type_one.setImageResource(R.drawable.pokeboll)
                     itemView.pokemon_type_one.setBackgroundResource(R.drawable.circle_normal)
-                    itemView.pokemon_type_two.contentDescription = "e ${pokemon.typeName1}"
+                    itemView.pokemon_type_two.contentDescription = "Pokemon do tipo ${pokemon.typeName1}"
                 }
             }
 
-            if (pokemon.typeName2 == pokemon.typeName1)
-                itemView.pokemon_type_one.visibility = View.GONE
+            when (pokemon.typeName2 == pokemon.typeName1) {
+                true -> { itemView.pokemon_type_one.visibility = View.GONE
+                    connector = "Pokemon do tipo"
+                }else -> connector = "e"
+            }
 
             when (pokemon.typeName2) {
                 "fire" -> {
@@ -183,118 +202,132 @@ class PokemonAdapter(
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.fire)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_fire)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "water" -> {
                     val typeNamePtBr_2 = "agua"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.water)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_water)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "ice" -> {
                     val typeNamePtBr_2 = "gelo"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.ice)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_water)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "connector $typeNamePtBr_2"
                 }
                 "grass" -> {
                     val typeNamePtBr_2 = "planta"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.grass)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_grass)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "poison" -> {
                     val typeNamePtBr_2 = "veneno"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.poison)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_poison)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "fighting" -> {
                     val typeNamePtBr_2 = "lutador"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.fighting)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_fighting)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "rock" -> {
                     val typeNamePtBr_2 = "rocha"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.rock)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_rock)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "flying" -> {
                     val typeNamePtBr_2 = "voador"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.flying)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_flying)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "dragon" -> {
                     val typeNamePtBr_2 = "voador"
                     itemView.pokemon_type_one.visibility = View.VISIBLE
                     itemView.pokemon_type_one.setImageResource(R.drawable.dragon)
                     itemView.pokemon_type_one.setBackgroundResource(R.drawable.circle_dragon)
-                    itemView.pokemon_type_one.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_one.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "electric" -> {
                     val typeNamePtBr_2 = "elétrico"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.electric)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_electric)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "bug" -> {
                     val typeNamePtBr_2 = "inceto"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.bug)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_bug)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "psychic" -> {
                     val typeNamePtBr_2 = "lutador"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.psychic)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_psychic)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "ground" -> {
                     val typeNamePtBr_2 = "terra"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.ground)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_ground)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "fairy" -> {
                     val typeNamePtBr_2 = "fada"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.fairy)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_flying)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "dark" -> {
                     val typeNamePtBr_2 = "sombra"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.dark)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_dark)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
+                }
+                "ghost" -> {
+                    val typeNamePtBr_1 = "fantasma"
+                    itemView.pokemon_type_two.visibility = View.VISIBLE
+                    itemView.pokemon_type_two.setImageResource(R.drawable.ghost)
+                    itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_ghost)
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_1"
+                }
+                "steel" -> {
+                    val typeNamePtBr_2 = "metal"
+                    itemView.pokemon_type_two.visibility = View.VISIBLE
+                    itemView.pokemon_type_two.setImageResource(R.drawable.iron)
+                    itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_iron)
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 "normal" -> {
                     val typeNamePtBr_2 = "normal"
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.normal)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_normal)
-                    itemView.pokemon_type_two.contentDescription = "e $typeNamePtBr_2"
+                    itemView.pokemon_type_two.contentDescription = "$connector $typeNamePtBr_2"
                 }
                 else -> {
                     itemView.pokemon_type_two.visibility = View.VISIBLE
                     itemView.pokemon_type_two.setImageResource(R.drawable.pokeboll)
                     itemView.pokemon_type_two.setBackgroundResource(R.drawable.circle_normal)
-                    itemView.pokemon_type_two.contentDescription = "e ${pokemon.typeName2}"
+                    itemView.pokemon_type_two.contentDescription = "$connector ${pokemon.typeName2}"
                 }
             }
         }
