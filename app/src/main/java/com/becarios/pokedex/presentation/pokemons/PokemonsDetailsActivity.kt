@@ -1,4 +1,4 @@
-package com.becarios.pokedex.presentation.details
+package com.becarios.pokedex.presentation.pokemons
 
 import android.content.Context
 import android.content.Intent

@@ -27,6 +27,10 @@
     <!-- Fragment Stats-->
     <string name="stats_title_1">Weaknesses</string>
     <string name="stats_title_2">Resistences</string>
+    <string name="stats">STATS</string>
+    <string name="evolutions">EVOLUTIONS</string>
+    <string name="abilities">ABILITIES</string>
+    <string name="water">Water</string>
 
 
 </resources>

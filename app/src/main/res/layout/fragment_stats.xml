@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewStats"
         android:layout_width="@dimen/default_size_0_dp"
         android:layout_height="@dimen/default_size_138_dp"
         android:layout_marginStart="@dimen/default_size_33_dp"
@@ -28,7 +28,7 @@
         android:textSize="@dimen/default_text_20_sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewStats" />
 
     <ImageView
         android:id="@+id/weakness1"

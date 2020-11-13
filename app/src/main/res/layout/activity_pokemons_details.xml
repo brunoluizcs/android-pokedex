@@ -77,7 +77,7 @@
         android:gravity="center"
         android:padding="@dimen/default_size_7_dp"
         android:paddingStart="@dimen/default_size_14_dp"
-        android:text="Water"
+        android:text="@string/water"
         android:textAllCaps="true"
         android:textColor="@color/whiteColor"
         android:textSize="@dimen/default_text_12_sp"
@@ -110,21 +110,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/avenirbook"
-            android:text="STATS" />
+            android:text="@string/stats" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabEvolution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/avenirbook"
-            android:text="EVOLUTIONS" />
+            android:text="@string/evolutions" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabAbility"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/avenirbook"
-            android:text="ABILITIES" />
+            android:text="@string/abilities" />
     </com.google.android.material.tabs.TabLayout>
 
     <ScrollView
