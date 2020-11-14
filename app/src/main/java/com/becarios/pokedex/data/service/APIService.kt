@@ -11,7 +11,6 @@ object APIService {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
-
     val service: PokemonService = initRetrofit().create(PokemonService::class.java)
 
 }

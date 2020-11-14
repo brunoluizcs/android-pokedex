@@ -27,11 +27,12 @@
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/default_size_10_dp"
             android:layout_marginTop="@dimen/default_size_16_dp"
             android:src="@drawable/ic_back_button"
+            motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="8dp" />
         <Constraint
             android:id="@+id/fundoPrincipal"
             android:layout_width="match_parent"

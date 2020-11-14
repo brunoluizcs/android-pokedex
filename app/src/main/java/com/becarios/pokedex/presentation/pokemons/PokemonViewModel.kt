@@ -1,5 +1,6 @@
 package com.becarios.pokedex.presentation.pokemons
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.becarios.pokedex.data.model.Pokemons
@@ -50,7 +51,7 @@ class PokemonViewModel : ViewModel() {
                     }
 
                     override fun onFailure(call: Call<PokemonRootResponse>, t: Throwable) {
-                        TODO("Not yet implemented")
+                        Log.e("Erro API ", t.message.toString())
                     }
 
                 })
@@ -83,7 +84,7 @@ class PokemonViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<PokemonIdResult>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.e("Erro API ", t.message.toString())
                 }
             })
     }
@@ -117,7 +118,7 @@ class PokemonViewModel : ViewModel() {
                     }
 
                     override fun onFailure(call: Call<PokemonRootResponse>, t: Throwable) {
-                        TODO("Not yet implemented")
+                        Log.e("Erro API ", t.message.toString())
                     }
                 })
     }

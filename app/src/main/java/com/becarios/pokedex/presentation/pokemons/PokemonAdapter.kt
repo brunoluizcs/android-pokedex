@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.becarios.pokedex.R
 import com.becarios.pokedex.data.model.Pokemons
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.pokemon_recycler_item.*
 import kotlinx.android.synthetic.main.pokemon_recycler_item.view.*
 
 class PokemonAdapter(
@@ -49,7 +48,7 @@ class PokemonAdapter(
                 onItemClickListener.invoke(pokemon)
             }
 
-            var connector = ""
+            var connector = String()
             if (pokemon.typeName1 == pokemon.typeName2) {
                 itemView.pokemon_type_two.visibility = View.GONE
             }

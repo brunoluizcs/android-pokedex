@@ -54,7 +54,6 @@ class PokemonIdAdapter (
                 onItemClickListener.invoke(pokemon)
             }
 
-
             if (pokemon.typeName1 == pokemon.typeName2)
                 itemView.pokemon_type_two.visibility = View.GONE
 

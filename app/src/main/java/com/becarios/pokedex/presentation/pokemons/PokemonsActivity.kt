@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.view.WindowManager
 import android.widget.SearchView
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,9 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.details.PokemonsDetailsActivity
+import com.becarios.pokedex.presentation.details.fragments.StatsFragment
 import kotlinx.android.synthetic.main.activity_pokemons.*
-import kotlinx.android.synthetic.main.pokemon_recycler_item.*
-import java.lang.Thread.sleep
 
 class PokemonsActivity : AppCompatActivity() {
 
@@ -29,19 +28,22 @@ class PokemonsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pokemons)
         val viewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
 
+
         viewModel.mLiveData.observe(this, Observer {
             it?.let { pokemons ->
                 with(recyclerView) {
                     layoutManager = GridLayoutManager(this@PokemonsActivity, 1)
                     setHasFixedSize(true)
                     adapter = PokemonAdapter(pokemons) { pokemon ->
-                        val intent = PokemonsDetailsActivity.getStartInt(
+                       val intent = PokemonsDetailsActivity.getStartInt(
                             this@PokemonsActivity,
-                            pokemon.name
+                            pokemon.name,
+                            pokemon.id,
+                            pokemon.typeName1
                         )
                         this@PokemonsActivity.startActivity(intent)
-
                     }
+
                     addOnScrollListener(object : RecyclerView.OnScrollListener() {
                         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
 
@@ -89,7 +91,9 @@ class PokemonsActivity : AppCompatActivity() {
                     adapter = PokemonIdAdapter(pokemons) { pokemon ->
                         val intent = PokemonsDetailsActivity.getStartInt(
                             this@PokemonsActivity,
-                            pokemon.name
+                            pokemon.name,
+                            pokemon.id,
+                            pokemon.typeName1
                         )
                         this@PokemonsActivity.startActivity(intent)
                     }
