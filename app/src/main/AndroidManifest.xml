@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".presentation.about.AboutActivity" />
+        <activity android:name=".presentation.details.PokemonsDetailsActivity" />
         <activity android:name=".presentation.pokemons.PokemonsActivity" />
 
         <activity android:name=".presentation.intro.SplashActivity">
