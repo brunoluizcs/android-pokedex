@@ -1,9 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.details.PokemonsDetailsActivity">
+    android:background="@color/water"
+    app:layoutDescription="@xml/activity_pokemons_details_scene">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/fundoPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_size_0_dp"
+        android:layout_marginTop="@dimen/default_size_178_dp"
+        android:background="@drawable/fundo_view_details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_size_10_dp"
+        android:layout_marginTop="@dimen/default_size_16_dp"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/spritePoke"
+        android:layout_width="@dimen/default_size_170_dp"
+        android:layout_height="@dimen/default_size_170_dp"
+        android:layout_marginTop="@dimen/default_size_44_dp"
+        android:src="@drawable/squirtle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tituloToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenirbook"
+        android:text="Squirtle"
+        android:textColor="@color/colorSubTitle"
+        android:textSize="@dimen/default_text_40_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spritePoke" />
+
+    <TextView
+        android:id="@+id/idPoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenirbook"
+        android:text="#007"
+        android:textColor="@color/colorPokeID"
+        android:textSize="@dimen/default_text_15_sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tituloToolbar" />
+
+
+    <TextView
+        android:id="@+id/typePoke"
+        android:layout_width="@dimen/default_size_110_dp"
+        android:layout_height="@dimen/default_size_30_dp"
+        android:layout_marginTop="@dimen/default_size_22_dp"
+        android:background="@drawable/fundo_water"
+        android:drawableStart="@drawable/ic_water"
+        android:drawablePadding="@dimen/default_size_7_dp"
+        android:fontFamily="@font/avenirbook"
+        android:gravity="center"
+        android:padding="@dimen/default_size_7_dp"
+        android:paddingStart="@dimen/default_size_14_dp"
+        android:text="@string/water"
+        android:textAllCaps="true"
+        android:textColor="@color/whiteColor"
+        android:textSize="@dimen/default_text_12_sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idPoke" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="@dimen/default_size_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_40_dp"
+        android:layout_marginTop="@dimen/default_size_28_dp"
+        android:layout_marginEnd="@dimen/default_size_40_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typePoke"
+        app:tabGravity="fill"
+        app:tabIndicator="@drawable/tab_layout"
+        app:tabIndicatorColor="@color/water"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="stretch"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/whiteColor"
+        app:tabTextColor="@color/water">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirbook"
+            android:text="@string/stats" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabEvolution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirbook"
+            android:text="@string/evolutions" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabAbility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirbook"
+            android:text="@string/abilities" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="@dimen/default_size_0_dp"
+        android:layout_height="@dimen/default_size_8_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout">
+
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="true"
+            android:isScrollContainer="true"
+            android:nestedScrollingEnabled="true"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbars="vertical"
+            android:verticalScrollbarPosition="right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+        </FrameLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

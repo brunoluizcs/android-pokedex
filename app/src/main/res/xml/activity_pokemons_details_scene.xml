@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="500">
+        <KeyFrameSet></KeyFrameSet>
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@id/fundoPrincipal"
+            motion:touchAnchorSide="top" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/spritePoke"
+            android:layout_width="@dimen/default_size_170_dp"
+            android:layout_height="@dimen/default_size_170_dp"
+            android:layout_marginTop="@dimen/default_size_44_dp"
+            android:src="@drawable/squirtle"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_size_10_dp"
+            android:layout_marginTop="@dimen/default_size_16_dp"
+            android:src="@drawable/ic_back_button"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/fundoPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_size_0_dp"
+            android:layout_marginTop="@dimen/default_size_178_dp"
+            android:background="@drawable/fundo_view_details"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/idPoke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#007"
+            android:textSize="@dimen/default_text_15_sp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/tituloToolbar"/>
+        <Constraint
+            android:id="@+id/typePoke"
+            android:layout_width="@dimen/default_size_110_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:layout_marginTop="@dimen/default_size_22_dp"
+            android:background="@drawable/fundo_water"
+            android:drawableStart="@drawable/ic_water"
+            android:drawablePadding="@dimen/default_size_7_dp"
+            android:gravity="center"
+            android:padding="@dimen/default_size_7_dp"
+            android:paddingStart="@dimen/default_size_14_dp"
+            android:text="Water"
+            android:textAllCaps="true"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/default_text_12_sp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/idPoke"/>
+        <Constraint
+            android:id="@+id/tituloToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Squirtle"
+            android:textSize="@dimen/default_text_30_sp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/spritePoke">
+            <CustomAttribute
+                motion:attributeName="TextColor"
+                motion:customColorValue="#000000" />
+            <PropertySet
+                android:visibility="visible"
+                motion:visibilityMode="ignore" />
+
+        </Constraint>
+        <Constraint
+            android:id="@+id/tabLayout"
+            android:layout_width="@dimen/default_size_0_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_40_dp"
+            android:layout_marginTop="@dimen/default_size_28_dp"
+            android:layout_marginEnd="@dimen/default_size_40_dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.492"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/typePoke" />
+        <Constraint
+            android:id="@+id/scrollView"
+            android:layout_width="@dimen/default_size_0_dp"
+            android:layout_height="@dimen/default_size_0_dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/spritePoke"
+            android:layout_width="@dimen/default_size_170_dp"
+            android:layout_height="@dimen/default_size_170_dp"
+            android:layout_marginTop="@dimen/default_size_44_dp"
+            android:alpha="0"
+            android:src="@drawable/squirtle"
+            motion:layout_constraintBottom_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_size_10_dp"
+            android:layout_marginTop="@dimen/default_size_16_dp"
+            android:src="@drawable/ic_back_button"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/fundoPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_size_0_dp"
+            android:background="@drawable/fundo_view_details"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/tituloToolbar" />
+        <Constraint
+            android:id="@+id/idPoke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:text="#007"
+            android:textSize="@dimen/default_text_15_sp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/tituloToolbar">
+            <CustomAttribute
+                motion:attributeName="TextColor"
+                motion:customColorValue="@color/colorPokeID" />
+            <PropertySet
+                android:visibility="gone"
+                motion:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/typePoke"
+            android:layout_width="@dimen/default_size_110_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:layout_marginTop="@dimen/default_size_22_dp"
+            android:alpha="0"
+            android:background="@drawable/fundo_water"
+            android:drawableStart="@drawable/ic_water"
+            android:drawablePadding="@dimen/default_size_7_dp"
+            android:gravity="center"
+            android:padding="@dimen/default_size_7_dp"
+            android:paddingStart="@dimen/default_size_14_dp"
+            android:text="Water"
+            android:textAllCaps="true"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/default_text_12_sp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/idPoke">
+            <PropertySet
+                android:visibility="gone"
+                motion:visibilityMode="ignore" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tituloToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Squirtle"
+            android:textSize="@dimen/default_text_30_sp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <PropertySet
+                android:visibility="visible"
+                motion:visibilityMode="ignore" />
+            <CustomAttribute
+                motion:attributeName="TextColor"
+                motion:customColorValue="#ffffff" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tabLayout"
+            android:layout_width="@dimen/default_size_0_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_40_dp"
+            android:layout_marginTop="@dimen/default_size_20_dp"
+            android:layout_marginEnd="@dimen/default_size_40_dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/fundoPrincipal" />
+
+    </ConstraintSet>
+</MotionScene>

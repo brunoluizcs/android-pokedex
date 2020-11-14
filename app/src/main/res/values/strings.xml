@@ -21,5 +21,16 @@
     <string name="pokemon_name">Bulbasour</string>
     <string name="pokedex_number">Número da pokedéx</string>
     <string name="pokemon_type">""</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Fragment Stats-->
+    <string name="stats_title_1">Weaknesses</string>
+    <string name="stats_title_2">Resistences</string>
+    <string name="stats">STATS</string>
+    <string name="evolutions">EVOLUTIONS</string>
+    <string name="abilities">ABILITIES</string>
+    <string name="water">Water</string>
+
 
 </resources>
