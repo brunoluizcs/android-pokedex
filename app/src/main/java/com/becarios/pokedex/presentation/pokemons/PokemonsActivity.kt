@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.SearchView
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.details.PokemonsDetailsActivity
-import com.becarios.pokedex.presentation.details.fragments.StatsFragment
 import kotlinx.android.synthetic.main.activity_pokemons.*
 
 class PokemonsActivity : AppCompatActivity() {
@@ -27,7 +25,6 @@ class PokemonsActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         setContentView(R.layout.activity_pokemons)
         val viewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
-
 
         viewModel.mLiveData.observe(this, Observer {
             it?.let { pokemons ->
@@ -74,7 +71,6 @@ class PokemonsActivity : AppCompatActivity() {
                                     },500)
                                 }
                             }
-
                             super.onScrolled(recyclerView, dx, dy)
                         }
                     })
@@ -83,10 +79,9 @@ class PokemonsActivity : AppCompatActivity() {
         })
         viewModel.getPokemon()
 
-        viewModel._mLiveData.observe(this, Observer {
-            it?.let { pokemons ->
-                with(recyclerView) {
-                    layoutManager = GridLayoutManager(this@PokemonsActivity, 1)
+
+        viewModel._mLiveData.observe(this, Observer { it?.let { pokemons ->
+                with(recyclerView) { layoutManager = GridLayoutManager(this@PokemonsActivity, 1)
                     setHasFixedSize(true)
                     adapter = PokemonIdAdapter(pokemons) { pokemon ->
                         val intent = PokemonsDetailsActivity.getStartInt(

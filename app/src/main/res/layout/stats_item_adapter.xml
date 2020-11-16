@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_size_33_dp"
         android:fontFamily="@font/avenirmedium"
-        android:text=""
         android:textColor="@color/water"
         android:textSize="@dimen/default_text_12_sp" />
 
@@ -31,6 +30,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/default_size_8_dp"
         android:layout_marginEnd="@dimen/default_size_33_dp"
+        android:background="@color/progressFound"
         android:indeterminate="false"
         android:max="200"
         android:progress="30"

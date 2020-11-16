@@ -5,56 +5,54 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.becarios.pokedex.R
+import kotlinx.android.synthetic.main.fragment_abilities.*
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AbilitiesFragments.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AbilitiesFragments : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    var value = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+       val viewModel = ViewModelProvider(this).get(AbilitiesViewModel::class.java)
+       val viewModel2 = ViewModelProvider(this).get(DescriptionViewModel::class.java)
+
+        viewModel.mLiveData.observe(this, androidx.lifecycle.Observer {
+            it?.let { abilities ->
+                ability1.text = abilities[0].name1.capitalize(Locale.ROOT)
+                ability2.text = abilities[1].name2.capitalize(Locale.ROOT)
+
+                val url1 = abilities[0].url1
+                val url2 = abilities[1].url2
+                val url1Split = url1.split("/").map { it.trim() }
+                val url2Split = url2.split("/").map { it.trim() }
+                val url1Formatter = url1Split[6]
+                val url2Formatter = url2Split[6]
+                viewModel2.getDescription(url1Formatter, url2Formatter)
+            }
+        })
+        viewModel.getAbilities(value)
+
+        viewModel2.mLiveData.observe(this, androidx.lifecycle.Observer {
+            it?.let { descriptions -> dscAbility1.text = descriptions[1].effect.capitalize(Locale.ROOT)
+            }})
+
+        viewModel2.mLiveData2.observe(this, androidx.lifecycle.Observer {
+            it?.let { descriptions -> dscAbility2.text = descriptions[1].effect.capitalize(Locale.ROOT)
+            }})
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_abilities, container, false)
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AbilitiesFragments.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AbilitiesFragments().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        fun newInstance(id: String, type: String) = AbilitiesFragments().apply {
+            arguments = Bundle().apply { putString("ID", "id")
+                value = id
             }
+        }
     }
 }

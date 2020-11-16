@@ -30,6 +30,26 @@
     <string name="stats">STATS</string>
     <string name="evolutions">EVOLUTIONS</string>
     <string name="abilities">ABILITIES</string>
+
+    <!-- Pomenons Type-->
+    <string name="Fire">Fire</string>
+    <string name="Water">Water</string>
+    <string name="Ice">Ice</string>
+    <string name="Grass">Grass</string>
+    <string name="Poison">Poison</string>
+    <string name="Fighting">Fighting</string>
+    <string name="Rock">Rock</string>
+    <string name="Flying">Flying</string>
+    <string name="Dragon">Dragon</string>
+    <string name="Electric">Electric</string>
+    <string name="Bug">Bug</string>
+    <string name="Psychic">Psychic</string>
+    <string name="Ground">Ground</string>
+    <string name="Fairy">Fairy</string>
+    <string name="Dark">Dark</string>
+    <string name="Ghost">Ghost</string>
+    <string name="Steel">Steel</string>
+    <string name="Normal">Normal</string>
     <string name="water">Water</string>
 
 

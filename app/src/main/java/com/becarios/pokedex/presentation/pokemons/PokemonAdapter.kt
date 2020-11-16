@@ -8,6 +8,7 @@ import com.becarios.pokedex.R
 import com.becarios.pokedex.data.model.Pokemons
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.pokemon_recycler_item.view.*
+import java.util.*
 
 class PokemonAdapter(
     private val pokemons: List<Pokemons>,
@@ -33,7 +34,7 @@ class PokemonAdapter(
         private val image = itemView.imagePokemon
 
         fun bindView(pokemon: Pokemons) {
-            name.text = pokemon.name
+            name.text = pokemon.name.capitalize(Locale.ROOT)
             id.text = pokemon.id
             val id = pokemon.id
 
@@ -52,7 +53,6 @@ class PokemonAdapter(
             if (pokemon.typeName1 == pokemon.typeName2) {
                 itemView.pokemon_type_two.visibility = View.GONE
             }
-
 
             when (pokemon.typeName1) {
                 "fire" -> {

@@ -8,6 +8,7 @@ import com.becarios.pokedex.R
 import com.becarios.pokedex.data.model.PokemonsId
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.pokemon_recycler_item.view.*
+import java.util.*
 
 class PokemonIdAdapter (
     private val pokemons: List<PokemonsId>,
@@ -38,17 +39,15 @@ class PokemonIdAdapter (
 
         fun bindView(pokemon: PokemonsId) {
 
-            name.text = pokemon.name
+            name.text = pokemon.name.capitalize(Locale.ROOT)
             id.text = pokemon.id
             val id = pokemon.id
-
 
             Glide.with(itemView)
                 .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png")
                 .error(R.drawable.pokeboll)
                 .centerCrop()
                 .into(image)
-
 
             itemView.setOnClickListener {
                 onItemClickListener.invoke(pokemon)
