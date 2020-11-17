@@ -3,13 +3,20 @@ package com.becarios.pokedex.presentation.details
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Layout
+import android.widget.Button
+import android.widget.TableLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.details.fragments.AbilitiesFragments
+import com.becarios.pokedex.presentation.details.fragments.EvolutionFragment
 import com.becarios.pokedex.presentation.details.fragments.StatsFragment
+import com.becarios.pokedex.presentation.pokemons.PokemonType
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_pokemons_details.*
 import java.util.*
 
@@ -30,8 +37,46 @@ class PokemonsDetailsActivity : AppCompatActivity() {
         idPoke.text = ("#$id")
         typePoke.text = type
 
-        initFragment()
-        //initFragment2()
+
+        backButton.setOnClickListener {
+            if (motionLayout.currentState == motionLayout.endState) {
+                motionLayout.transitionToStart()
+            } else finish()
+        }
+
+        fun initFragment(fragLayout: Fragment) {
+            val ft1: FragmentTransaction = supportFragmentManager.beginTransaction()
+            ft1.replace(R.id.frameLayout, fragLayout)
+            ft1.commit()
+        }
+
+        initFragment(fragLayout = StatsFragment.newInstance(idData, typeData))
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                when (tab.position) {
+                    0 -> {
+                        val fragLayout = StatsFragment.newInstance(idData, typeData)
+                        initFragment(fragLayout)
+                    }
+                    1 -> {
+                        val fragLayout = AbilitiesFragments.newInstance(idData, typeData)
+                        initFragment(fragLayout)
+                    }
+                    2 -> {
+                        val fragLayout = EvolutionFragment.newInstance(idData, typeData)
+                        initFragment(fragLayout)
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+
+            }
+        })
 
         when (type) {
             "fire" -> {
@@ -222,19 +267,6 @@ class PokemonsDetailsActivity : AppCompatActivity() {
         }
     }
 
-    fun initFragment() {
-        val statsfragment = StatsFragment.newInstance(idData, typeData)
-        val ft1: FragmentTransaction = supportFragmentManager.beginTransaction()
-        ft1.replace(R.id.frameLayout, statsfragment)
-        ft1.commit()
-
-    }
-
-    fun initFragment2() {
-        val abilitiesFragments = AbilitiesFragments.newInstance(idData, typeData)
-        val ft2: FragmentTransaction = supportFragmentManager.beginTransaction()
-        ft2.replace(R.id.frameLayout, abilitiesFragments)
-        ft2.commit()
-    }
-
 }
+
+

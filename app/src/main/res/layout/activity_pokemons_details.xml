@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/water"
     app:layoutDescription="@xml/activity_pokemons_details_scene">
 
 
@@ -22,13 +22,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
+    <Button
+        android:clickable="true"
         android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_size_10_dp"
+        android:layout_marginStart="@dimen/default_size_10_dp"
+        android:backgroundTint="@color/whiteColor"
+        android:background="@drawable/ic_arrow_back"
+        android:layout_width="@dimen/default_size_12_dp"
+        android:layout_height="@dimen/default_size_21_dp"
         android:layout_marginTop="@dimen/default_size_16_dp"
-        android:src="@drawable/ic_back_button"
+        android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

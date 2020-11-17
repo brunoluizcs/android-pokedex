@@ -10,6 +10,7 @@
         android:layout_width="@dimen/default_size_65_dp"
         android:layout_height="@dimen/default_size_65_dp"
         android:layout_marginStart="@dimen/default_size_45_dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/squirtle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,6 +31,7 @@
         android:id="@+id/spriteEvol2"
         android:layout_width="@dimen/default_size_65_dp"
         android:layout_height="@dimen/default_size_65_dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="@dimen/default_size_45_dp"
         android:src="@drawable/squirtle"
         app:layout_constraintEnd_toEndOf="parent"

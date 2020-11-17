@@ -9,7 +9,7 @@
         <KeyFrameSet></KeyFrameSet>
         <OnSwipe
             motion:dragDirection="dragUp"
-            motion:touchAnchorId="@id/fundoPrincipal"
+            motion:touchAnchorId="@id/scrollView"
             motion:touchAnchorSide="top" />
     </Transition>
 
@@ -25,14 +25,16 @@
             motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
             android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/default_size_12_dp"
+            android:layout_height="@dimen/default_size_21_dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="@dimen/default_size_10_dp"
             android:layout_marginTop="@dimen/default_size_16_dp"
-            android:src="@drawable/ic_back_button"
-            motion:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_arrow_back"
+            android:backgroundTint="@color/whiteColor"
+            android:clickable="true"
             motion:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="8dp" />
+            motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
             android:id="@+id/fundoPrincipal"
             android:layout_width="match_parent"
@@ -51,7 +53,7 @@
             android:textSize="@dimen/default_text_15_sp"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/tituloToolbar"/>
+            motion:layout_constraintTop_toBottomOf="@id/tituloToolbar" />
         <Constraint
             android:id="@+id/typePoke"
             android:layout_width="@dimen/default_size_110_dp"
@@ -69,7 +71,7 @@
             android:textSize="@dimen/default_text_12_sp"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/idPoke"/>
+            motion:layout_constraintTop_toBottomOf="@id/idPoke" />
         <Constraint
             android:id="@+id/tituloToolbar"
             android:layout_width="wrap_content"
@@ -106,12 +108,11 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@id/tabLayout" />
-
-
     </ConstraintSet>
 
 
     <ConstraintSet android:id="@+id/end">
+
         <Constraint
             android:id="@+id/spritePoke"
             android:layout_width="@dimen/default_size_170_dp"
@@ -125,13 +126,22 @@
 
         <Constraint
             android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/default_size_12_dp"
+            android:layout_height="@dimen/default_size_21_dp"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="@dimen/default_size_10_dp"
             android:layout_marginTop="@dimen/default_size_16_dp"
-            android:src="@drawable/ic_back_button"
+            android:background="@drawable/ic_arrow_back"
+            android:backgroundTint="@color/whiteColor"
+            android:clickable="true"
+            android:rotation="-90"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintTop_toTopOf="parent">
+            <OnClick
+                motion:targetId="@id/backButton"
+                motion:clickAction="transitionToStart" />
+        </Constraint>
+
         <Constraint
             android:id="@+id/fundoPrincipal"
             android:layout_width="match_parent"
@@ -139,8 +149,10 @@
             android:background="@drawable/fundo_view_details"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/tituloToolbar" />
+            motion:layout_constraintTop_toBottomOf="@+id/tituloToolbar"
+            motion:layout_constraintVertical_bias="0.0" />
         <Constraint
             android:id="@+id/idPoke"
             android:layout_width="wrap_content"
@@ -207,6 +219,14 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="@+id/fundoPrincipal" />
+        <Constraint
+            android:id="@+id/scrollView"
+            android:layout_width="@dimen/default_size_0_dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
     </ConstraintSet>
 </MotionScene>
