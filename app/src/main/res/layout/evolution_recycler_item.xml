@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/evolutionSprite1"
+        android:layout_width="@dimen/default_size_65_dp"
+        android:layout_height="@dimen/default_size_65_dp"
+        android:layout_marginStart="@dimen/default_size_45_dp"
+        android:layout_marginTop="@dimen/default_size_24_dp"
+        android:src="@drawable/squirtle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/evolutionTxt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenirbook"
+        android:text="Squirtle"
+        android:textColor="@color/colorPokeEvolution"
+        app:layout_constraintEnd_toEndOf="@id/evolutionSprite1"
+        app:layout_constraintStart_toStartOf="@id/evolutionSprite1"
+        app:layout_constraintTop_toBottomOf="@id/evolutionSprite1" />
+
+    <ImageView
+        android:id="@+id/evolutionArrow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="evolui para"
+        android:src="@drawable/ic_evolution_arrow"
+        app:layout_constraintBottom_toBottomOf="@id/evolutionSprite1"
+        app:layout_constraintEnd_toStartOf="@id/evolutionSprite2"
+        app:layout_constraintStart_toEndOf="@id/evolutionSprite1"
+        app:layout_constraintTop_toTopOf="@id/evolutionSprite1" />
+
+
+    <ImageView
+        android:id="@+id/evolutionSprite2"
+        android:layout_width="@dimen/default_size_65_dp"
+        android:layout_height="@dimen/default_size_65_dp"
+        android:layout_marginTop="@dimen/default_size_24_dp"
+        android:layout_marginEnd="@dimen/default_size_45_dp"
+        android:src="@drawable/squirtle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/evolutionTxt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenirbook"
+        android:text="Squirtle"
+        android:textColor="@color/colorPokeEvolution"
+        app:layout_constraintEnd_toEndOf="@id/evolutionSprite2"
+        app:layout_constraintStart_toStartOf="@id/evolutionSprite2"
+        app:layout_constraintTop_toBottomOf="@id/evolutionSprite2" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_size_1_dp"
+        android:layout_marginTop="@dimen/default_size_24_dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/evolutionTxt1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

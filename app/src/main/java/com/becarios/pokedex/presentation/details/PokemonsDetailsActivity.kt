@@ -59,11 +59,11 @@ class PokemonsDetailsActivity : AppCompatActivity() {
                         initFragment(fragLayout)
                     }
                     1 -> {
-                        val fragLayout = AbilitiesFragments.newInstance(idData, typeData)
+                        val fragLayout = EvolutionFragment.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
                     2 -> {
-                        val fragLayout = EvolutionFragment.newInstance(idData, typeData)
+                        val fragLayout = AbilitiesFragments.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
                 }

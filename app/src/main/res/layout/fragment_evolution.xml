@@ -1,136 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/spriteEvol1"
-        android:layout_width="@dimen/default_size_65_dp"
-        android:layout_height="@dimen/default_size_65_dp"
-        android:layout_marginStart="@dimen/default_size_45_dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/squirtle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textEvol1"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerEvolution"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_size_6_dp"
-        android:fontFamily="@font/avenirbook"
-        android:text="Squirtle"
-        android:textColor="@color/colorPokeEvolution"
-        app:layout_constraintEnd_toEndOf="@+id/spriteEvol1"
-        app:layout_constraintStart_toStartOf="@+id/spriteEvol1"
-        app:layout_constraintTop_toBottomOf="@+id/spriteEvol1" />
-
-    <ImageView
-        android:id="@+id/spriteEvol2"
-        android:layout_width="@dimen/default_size_65_dp"
-        android:layout_height="@dimen/default_size_65_dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="@dimen/default_size_45_dp"
-        android:src="@drawable/squirtle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textEvol2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_size_6_dp"
-        android:fontFamily="@font/avenirbook"
-        android:text="Squirtle"
-        android:textColor="@color/colorPokeEvolution"
-        app:layout_constraintEnd_toEndOf="@+id/spriteEvol2"
-        app:layout_constraintStart_toStartOf="@+id/spriteEvol2"
-        app:layout_constraintTop_toBottomOf="@+id/spriteEvol2" />
-
-    <ImageView
-        android:id="@+id/spriteEvol3"
-        android:layout_width="@dimen/default_size_65_dp"
-        android:layout_height="@dimen/default_size_65_dp"
-        android:layout_marginStart="@dimen/default_size_45_dp"
-        android:layout_marginTop="@dimen/default_size_85_dp"
-        android:src="@drawable/squirtle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spriteEvol1" />
-
-    <TextView
-        android:id="@+id/textEvol3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_size_6_dp"
-        android:fontFamily="@font/avenirbook"
-        android:text="Squirtle"
-        android:textColor="@color/colorPokeEvolution"
-        app:layout_constraintEnd_toEndOf="@+id/spriteEvol3"
-        app:layout_constraintStart_toStartOf="@+id/spriteEvol3"
-        app:layout_constraintTop_toBottomOf="@+id/spriteEvol3" />
-
-    <ImageView
-        android:id="@+id/spriteEvol4"
-        android:layout_width="@dimen/default_size_65_dp"
-        android:layout_height="@dimen/default_size_65_dp"
-        android:layout_marginTop="@dimen/default_size_85_dp"
-        android:layout_marginEnd="@dimen/default_size_45_dp"
-        android:src="@drawable/squirtle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spriteEvol2" />
-
-    <TextView
-        android:id="@+id/textEvol4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_size_6_dp"
-        android:fontFamily="@font/avenirbook"
-        android:text="Squirtle"
-        android:textColor="@color/colorPokeEvolution"
-        app:layout_constraintEnd_toEndOf="@+id/spriteEvol4"
-        app:layout_constraintStart_toStartOf="@+id/spriteEvol4"
-        app:layout_constraintTop_toBottomOf="@+id/spriteEvol4" />
-
-    <ImageView
-        android:id="@+id/evolutionArrow1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_evolution_arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/spriteEvol3"
-        app:layout_constraintEnd_toStartOf="@+id/spriteEvol4"
-        app:layout_constraintStart_toEndOf="@+id/spriteEvol3"
-        app:layout_constraintTop_toTopOf="@+id/spriteEvol3" />
-
-    <ImageView
-        android:id="@+id/evolutionArrow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_evolution_arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/spriteEvol1"
-        app:layout_constraintEnd_toStartOf="@+id/spriteEvol2"
-        app:layout_constraintStart_toEndOf="@+id/spriteEvol1"
-        app:layout_constraintTop_toTopOf="@+id/spriteEvol1" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="@dimen/default_size_409_dp"
-        android:layout_height="@dimen/default_size_1_dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/spriteEvol3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spriteEvol1" />
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="@dimen/default_size_409_dp"
-        android:layout_height="@dimen/default_size_1_dp"
-        android:layout_marginTop="@dimen/default_size_45_dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spriteEvol3" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/evolution_recycler_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
