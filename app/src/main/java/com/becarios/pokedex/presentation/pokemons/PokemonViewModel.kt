@@ -20,6 +20,7 @@ class PokemonViewModel : ViewModel() {
     val pokemonsList2: MutableList<PokemonsDamage> = mutableListOf()
     val _mLiveData: MutableLiveData<List<PokemonsId>> = MutableLiveData()
 
+
     var pokemonId = 1
     val limitPokemons = 20
 
