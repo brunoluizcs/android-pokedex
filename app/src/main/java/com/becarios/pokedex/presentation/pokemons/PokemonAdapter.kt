@@ -46,7 +46,6 @@ class PokemonAdapter(private val pokemons: List<Pokemons>, val onItemClickListen
 
             itemView.setOnClickListener {
                 onItemClickListener.invoke(pokemon)
-                Toasty.custom(itemView.context, "${pokemon.name.capitalize(Locale.ROOT)} selecionado!", R.drawable.poke_icon, Color.BLACK, 5, true, true).show()
             }
 
             var connector = String()
