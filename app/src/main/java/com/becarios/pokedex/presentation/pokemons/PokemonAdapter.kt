@@ -1,5 +1,6 @@
 package com.becarios.pokedex.presentation.pokemons
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,13 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.becarios.pokedex.R
 import com.becarios.pokedex.data.model.Pokemons
 import com.bumptech.glide.Glide
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.pokemon_recycler_item.view.*
 import java.util.*
 
-class PokemonAdapter(
-    private val pokemons: List<Pokemons>,
-    val onItemClickListener: ((pokemon: Pokemons) -> Unit)
-) :
+class PokemonAdapter(private val pokemons: List<Pokemons>, val onItemClickListener: ((pokemon: Pokemons) -> Unit)) :
     RecyclerView.Adapter<PokemonAdapter.PokemonsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonsViewHolder {
@@ -47,6 +46,7 @@ class PokemonAdapter(
 
             itemView.setOnClickListener {
                 onItemClickListener.invoke(pokemon)
+                Toasty.custom(itemView.context, "${pokemon.name.capitalize(Locale.ROOT)} selecionado!", R.drawable.poke_icon, Color.BLACK, 5, true, true).show()
             }
 
             var connector = String()

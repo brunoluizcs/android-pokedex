@@ -9,7 +9,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStats"
         android:layout_width="@dimen/default_size_0_dp"
-        android:layout_height="@dimen/default_size_138_dp"
+        android:layout_height="@dimen/default_size_178_dp"
         android:layout_marginStart="@dimen/default_size_33_dp"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="@dimen/default_size_33_dp"

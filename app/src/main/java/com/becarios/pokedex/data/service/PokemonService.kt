@@ -5,6 +5,8 @@ import com.becarios.pokedex.data.response.abilities.PokemonDescription
 import com.becarios.pokedex.data.response.damages.weaknesses.DamageBody
 import com.becarios.pokedex.data.response.listagem.PokemonIdResult
 import com.becarios.pokedex.data.response.listagem.PokemonRootResponse
+import com.becarios.pokedex.data.response.species.Chain
+import com.becarios.pokedex.data.response.species.EvolutionChainBody
 import com.becarios.pokedex.data.response.stats.PokemonStats
 import retrofit2.Call
 import retrofit2.http.GET
@@ -28,4 +30,10 @@ interface PokemonService {
 
     @GET("ability/{Id}") fun getDescription(@Path("Id") Id: String
     ): Call<PokemonDescription>
+
+    @GET("pokemon-species/{Id}") fun getSpecies(@Path("Id") Id: String
+    ): Call<EvolutionChainBody>
+
+    @GET("evolution-chain/{Id}") fun getEvolution(@Path("Id") Id: String
+    ): Call<Chain>
 }

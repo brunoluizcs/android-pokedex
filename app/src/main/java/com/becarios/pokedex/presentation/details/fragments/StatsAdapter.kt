@@ -38,6 +38,7 @@ class StatsAdapter(private val pokemonsStats: List<PokemonsStats>, val onItemCli
                 "special-attack"  -> stat_Name = "SAT"
                 "special-defense" -> stat_Name = "SDEF"
                 "speed"           -> stat_Name = "SPD"
+
             }
             statName.text = stat_Name
             statValue.text = pokemonStats.base_stat1

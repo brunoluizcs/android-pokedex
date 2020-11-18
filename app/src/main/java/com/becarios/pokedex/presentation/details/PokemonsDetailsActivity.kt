@@ -3,9 +3,6 @@ package com.becarios.pokedex.presentation.details
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.Layout
-import android.widget.Button
-import android.widget.TableLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -14,7 +11,6 @@ import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.details.fragments.AbilitiesFragments
 import com.becarios.pokedex.presentation.details.fragments.EvolutionFragment
 import com.becarios.pokedex.presentation.details.fragments.StatsFragment
-import com.becarios.pokedex.presentation.pokemons.PokemonType
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_pokemons_details.*
@@ -58,7 +54,7 @@ class PokemonsDetailsActivity : AppCompatActivity() {
                         val fragLayout = StatsFragment.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
-                    1 -> {
+                    1-> {
                         val fragLayout = EvolutionFragment.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
@@ -66,6 +62,7 @@ class PokemonsDetailsActivity : AppCompatActivity() {
                         val fragLayout = AbilitiesFragments.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
+
                 }
             }
 

@@ -21,8 +21,7 @@ class StatsViewModel : ViewModel() {
                                 for (results in stats.stats) {
                                     val pokemonStats = PokemonsStats(
                                         base_stat1 = results.base_stat,
-                                        name = results.stat.name,
-                                        type = "fire"
+                                        name = results.stat.name
                                     )
                                     pokemonsList.add(pokemonStats)
                                 }

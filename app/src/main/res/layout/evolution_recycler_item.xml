@@ -11,7 +11,6 @@
         android:layout_height="@dimen/default_size_65_dp"
         android:layout_marginStart="@dimen/default_size_45_dp"
         android:layout_marginTop="@dimen/default_size_24_dp"
-        android:src="@drawable/squirtle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,7 +19,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/avenirbook"
-        android:text="Squirtle"
         android:textColor="@color/colorPokeEvolution"
         app:layout_constraintEnd_toEndOf="@id/evolutionSprite1"
         app:layout_constraintStart_toStartOf="@id/evolutionSprite1"
@@ -44,7 +42,6 @@
         android:layout_height="@dimen/default_size_65_dp"
         android:layout_marginTop="@dimen/default_size_24_dp"
         android:layout_marginEnd="@dimen/default_size_45_dp"
-        android:src="@drawable/squirtle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,7 +50,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/avenirbook"
-        android:text="Squirtle"
         android:textColor="@color/colorPokeEvolution"
         app:layout_constraintEnd_toEndOf="@id/evolutionSprite2"
         app:layout_constraintStart_toStartOf="@id/evolutionSprite2"
