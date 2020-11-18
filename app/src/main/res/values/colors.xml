@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorInfoAbout">#FAFAFA</color>
+    <color name="colorSubTitle">#4F4F4F</color>
+    <color name="colorText">#555555</color>
+    <color name="buttonBack">#242424</color>
+    <color name="whiteColor">#FFFFFF</color>
+
+    <!-- Pokemons Colors -->
+    <color name="fire">#FF9424</color>
+    <color name="dragon">#0773C7</color>
+    <color name="flying">#569AB4</color>
+    <color name="ghost">#6970C5</color>
+    <color name="poison">#B563CE</color>
+    <color name="grass">#5DBE62</color>
+    <color name="ground">#D78555</color>
+    <color name="normal">#7E7E7E</color>
+    <color name="psychic">#F87C7A</color>
+    <color name="fairy">#FF51ED</color>
+    <color name="rock">#B98325</color>
+    <color name="steel">#338597</color>
+    <color name="water">#559EDF</color>
+    <color name="dark">#5F606D</color>
+    <color name="bug">#9DC130</color>
+    <color name="electric">#E6BE1A</color>
+    <color name="fight">#D94256</color>
+    <color name="ice">#28C5AD</color>
+
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".presentation.about.AboutActivity">
+
+    <View
+        android:id="@+id/viewHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/default_size_80_dp"
+        android:background="@drawable/splash_gradient_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_size_22_dp"
+        android:accessibilityHeading="true"
+        android:fontFamily="@font/avenirmedium"
+        android:text="@string/about"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/default_text_20_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/default_size_8_dp"
+        android:background="@drawable/splash_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewHeader" />
+
+
+    <View
+        android:id="@+id/backgroundTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/default_size_56_dp"
+        android:background="@color/colorInfoAbout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/txtSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_22_dp"
+        android:layout_marginTop="@dimen/default_size_15_dp"
+        android:fontFamily="@font/avenirmedium"
+        android:text="@string/subAbout"
+        android:textColor="@color/colorSubTitle"
+        android:textSize="@dimen/default_text_20_sp"
+        app:layout_constraintStart_toStartOf="@+id/backgroundTitle"
+        app:layout_constraintTop_toTopOf="@+id/backgroundTitle" />
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="@dimen/default_size_0_dp"
+        android:layout_height="@dimen/default_size_152_dp"
+        android:layout_marginStart="@dimen/default_size_22_dp"
+        android:layout_marginTop="@dimen/default_size_8_dp"
+        android:layout_marginEnd="@dimen/default_size_22_dp"
+        android:fontFamily="@font/avenirbook"
+        android:lineSpacingExtra="@dimen/default_text_2_sp"
+        android:text="@string/description"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/default_text_15_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTitle" />
+
+    <TextView
+        android:id="@+id/txtVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_22_dp"
+        android:layout_marginTop="@dimen/default_size_10_dp"
+        android:fontFamily="@font/avenirmedium"
+        android:text="@string/versionTitle"
+        android:textColor="@color/colorSubTitle"
+        android:textSize="@dimen/default_text_19_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+
+    <TextView
+        android:id="@+id/txtVersionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_22_dp"
+        android:layout_marginTop="@dimen/default_size_16_dp"
+        android:fontFamily="@font/avenirbook"
+        android:text="@string/version"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/default_text_16_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVersion" />
+
+    <Button
+        android:id="@+id/backButtonAbout"
+        android:layout_width="@dimen/default_size_12_dp"
+        android:layout_height="@dimen/default_size_21_dp"
+        android:layout_marginStart="@dimen/default_size_19_dp"
+        android:layout_marginBottom="@dimen/default_size_25_dp"
+        android:background="@drawable/ic_arrow_back"
+        android:contentDescription="@string/back_button"
+        android:focusable="true"
+        android:importantForAccessibility="yes"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
