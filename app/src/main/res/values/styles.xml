@@ -8,4 +8,23 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="Fire"><item name="android:textColor">@color/fire</item></style>
+    <style name="Water"><item name="android:textColor">@color/water</item></style>
+    <style name="Dragon"><item name="android:textColor">@color/dragon</item></style>
+    <style name="Flying"><item name="android:textColor">@color/flying</item></style>
+    <style name="Ghost"><item name="android:textColor">@color/ghost</item></style>
+    <style name="Poison"><item name="android:textColor">@color/poison</item></style>
+    <style name="Grass"><item name="android:textColor">@color/grass</item></style>
+    <style name="Ground"><item name="android:textColor">@color/ground</item></style>
+    <style name="Normal"><item name="android:textColor">@color/normal</item></style>
+    <style name="Psychic"><item name="android:textColor">@color/psychic</item></style>
+    <style name="Fairy"><item name="android:textColor">@color/fairy</item></style>
+    <style name="Rock"><item name="android:textColor">@color/rock</item></style>
+    <style name="Steel"><item name="android:textColor">@color/steel</item></style>
+    <style name="Dark"><item name="android:textColor">@color/dark</item></style>
+    <style name="Bug"><item name="android:textColor">@color/bug</item></style>
+    <style name="Electric"><item name="android:textColor">@color/electric</item></style>
+    <style name="Ice"><item name="android:textColor">@color/ice</item></style>
+    <style name="Fight"><item name="android:textColor">@color/fight</item></style>
+
 </resources>

@@ -13,6 +13,8 @@
         android:layout_marginStart="@dimen/default_size_33_dp"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="@dimen/default_size_33_dp"
+        android:focusable="true"
+        android:importantForAccessibility="yes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,163 +26,198 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_size_64_dp"
         android:fontFamily="@font/avenirmedium"
+        android:importantForAccessibility="no"
         android:text="@string/stats_title_1"
-        android:textColor="@color/water"
         android:textSize="@dimen/default_text_20_sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewStats" />
 
 
-    <ImageView
-        android:id="@+id/weakness1"
-        android:layout_width="@dimen/default_size_30_dp"
-        android:layout_height="@dimen/default_size_30_dp"
-        android:layout_marginStart="@dimen/default_size_37_dp"
-        android:layout_marginTop="@dimen/default_size_34_dp"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtWeak" />
-
-    <TextView
-        android:id="@+id/txtWeakness1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_size_16_dp"
-        android:layout_marginTop="@dimen/default_size_34_dp"
-        android:fontFamily="@font/avenirbook"
-        android:textColor="@color/colorSubTitle"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@id/weakness1"
-        app:layout_constraintTop_toBottomOf="@id/txtWeak"/>
-
-
-    <ImageView
-        android:id="@+id/weakness2"
-        android:layout_width="@dimen/default_size_30_dp"
-        android:layout_height="@dimen/default_size_30_dp"
-        android:layout_marginStart="@dimen/default_size_37_dp"
-        android:layout_marginTop="@dimen/default_size_14_dp"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weakness1" />
-
-    <TextView
-        android:id="@+id/txtWeakness2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_size_16_dp"
-        android:layout_marginTop="@dimen/default_size_19_dp"
-        android:fontFamily="@font/avenirbook"
-        android:textColor="@color/colorSubTitle"
-        android:textSize="@dimen/default_text_20_sp"
-        app:layout_constraintStart_toEndOf="@id/weakness2"
-        app:layout_constraintTop_toBottomOf="@id/txtWeakness1" />
-
-
-    <ImageView
-        android:id="@+id/weakness3"
-        android:layout_width="@dimen/default_size_30_dp"
-        android:layout_height="@dimen/default_size_30_dp"
-        android:layout_marginStart="@dimen/default_size_37_dp"
-        android:layout_marginTop="@dimen/default_size_14_dp"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weakness2" />
-
-    <TextView
-        android:id="@+id/txtWeakness3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_size_16_dp"
-        android:layout_marginTop="@dimen/default_size_19_dp"
-        android:fontFamily="@font/avenirbook"
-        android:textColor="@color/colorSubTitle"
-        android:textSize="@dimen/default_text_20_sp"
-        app:layout_constraintStart_toEndOf="@id/weakness3"
-        app:layout_constraintTop_toBottomOf="@id/txtWeakness2" />
-
     <TextView
         android:id="@+id/txtResist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_size_35_dp"
+        android:layout_marginTop="@dimen/default_size_34_dp"
         android:fontFamily="@font/avenirmedium"
+        android:importantForAccessibility="no"
         android:text="@string/stats_title_2"
-        android:textColor="@color/water"
         android:textSize="@dimen/default_text_20_sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtWeakness3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutWeak3" />
 
 
-    <ImageView
-        android:id="@+id/resist1"
-        android:layout_width="@dimen/default_size_30_dp"
-        android:layout_height="@dimen/default_size_30_dp"
+    <LinearLayout
+        android:id="@+id/linearLayoutWeak1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_size_37_dp"
         android:layout_marginTop="@dimen/default_size_34_dp"
-        android:scaleType="centerInside"
+        android:focusable="true"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtResist" />
+        app:layout_constraintTop_toBottomOf="@id/txtWeak">
 
-    <TextView
-        android:id="@+id/txtResist1"
+        <ImageView
+            android:id="@+id/weakness1"
+            android:layout_width="@dimen/default_size_30_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/txtWeakness1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_16_dp"
+            android:fontFamily="@font/avenirbook"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_size_20_dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutWeak2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_size_16_dp"
-        android:layout_marginTop="@dimen/default_size_34_dp"
-        android:fontFamily="@font/avenirbook"
-        android:textColor="@color/colorSubTitle"
-        android:textSize="@dimen/default_text_20_sp"
-        app:layout_constraintStart_toEndOf="@id/resist1"
-        app:layout_constraintTop_toBottomOf="@id/txtResist"/>
-
-    <ImageView
-        android:id="@+id/resist2"
-        android:layout_width="@dimen/default_size_30_dp"
-        android:layout_height="@dimen/default_size_30_dp"
         android:layout_marginStart="@dimen/default_size_37_dp"
-        android:layout_marginTop="@dimen/default_size_14_dp"
-        android:scaleType="centerInside"
+        android:layout_marginTop="@dimen/default_size_16_dp"
+        android:focusable="true"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resist1" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutWeak1">
 
-    <TextView
-        android:id="@+id/txtResist2"
+        <ImageView
+            android:id="@+id/weakness2"
+            android:layout_width="@dimen/default_size_30_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/txtWeakness2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_16_dp"
+            android:fontFamily="@font/avenirbook"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_text_20_sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutWeak3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_size_16_dp"
-        android:layout_marginTop="@dimen/default_size_19_dp"
-        android:fontFamily="@font/avenirbook"
-        android:textColor="@color/colorSubTitle"
-        android:textSize="@dimen/default_text_20_sp"
-        app:layout_constraintStart_toEndOf="@id/resist2"
-        app:layout_constraintTop_toBottomOf="@id/txtResist1"/>
-
-
-    <ImageView
-        android:id="@+id/resist3"
-        android:layout_width="@dimen/default_size_30_dp"
-        android:layout_height="@dimen/default_size_30_dp"
         android:layout_marginStart="@dimen/default_size_37_dp"
-        android:layout_marginTop="@dimen/default_size_14_dp"
-        android:scaleType="centerInside"
+        android:layout_marginTop="@dimen/default_size_16_dp"
+        android:focusable="true"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resist2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutWeak2">
 
-    <TextView
-        android:id="@+id/txtResist3"
+        <ImageView
+            android:id="@+id/weakness3"
+            android:layout_width="@dimen/default_size_30_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/txtWeakness3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_16_dp"
+            android:fontFamily="@font/avenirbook"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_text_20_sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutResist1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_size_16_dp"
-        android:layout_marginTop="@dimen/default_size_19_dp"
-        android:fontFamily="@font/avenirbook"
-        android:textColor="@color/colorSubTitle"
-        android:textSize="@dimen/default_text_20_sp"
-        app:layout_constraintStart_toEndOf="@id/resist3"
-        app:layout_constraintTop_toBottomOf="@id/txtResist2"/>
+        android:layout_marginStart="@dimen/default_size_37_dp"
+        android:layout_marginTop="@dimen/default_size_45_dp"
+        android:focusable="true"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtResist">
 
+        <ImageView
+            android:id="@+id/resist1"
+            android:layout_width="@dimen/default_size_30_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/txtResist1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_16_dp"
+            android:fontFamily="@font/avenirbook"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_text_20_sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutResist2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_37_dp"
+        android:layout_marginTop="@dimen/default_size_16_dp"
+        android:focusable="true"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutResist1">
+
+        <ImageView
+            android:id="@+id/resist2"
+            android:layout_width="@dimen/default_size_30_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/txtResist2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_16_dp"
+            android:fontFamily="@font/avenirbook"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_text_20_sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutResist3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size_37_dp"
+        android:layout_marginTop="@dimen/default_size_16_dp"
+        android:layout_marginBottom="@dimen/default_size_28_dp"
+        android:focusable="true"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutResist2">
+
+        <ImageView
+            android:id="@+id/resist3"
+            android:layout_width="@dimen/default_size_30_dp"
+            android:layout_height="@dimen/default_size_30_dp"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/txtResist3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_size_16_dp"
+            android:fontFamily="@font/avenirbook"
+            android:textColor="@color/colorSubTitle"
+            android:textSize="@dimen/default_text_20_sp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

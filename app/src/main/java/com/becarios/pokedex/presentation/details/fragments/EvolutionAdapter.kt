@@ -6,6 +6,11 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.view.AccessibilityDelegateCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.becarios.pokedex.R
 import com.becarios.pokedex.data.model.EvolutionChain2
@@ -44,8 +49,10 @@ class EvolutionAdapter(private val pokemonsEvolution: List<EvolutionChain2>, val
     class PokemonsViewHolder(itemView: View, private val onItemClickListener:
     ((pokemon: EvolutionChain2) -> Unit)) : RecyclerView.ViewHolder(itemView) {
 
+
         private val evolutionTxt1 = itemView.evolutionTxt1
         private val evolutionTxt2 = itemView.evolutionTxt2
+        private val spritePoke = itemView.evolutionSprite1
         private val image1 = itemView.evolutionSprite1
         private val image2 = itemView.evolutionSprite2
 
@@ -73,12 +80,9 @@ class EvolutionAdapter(private val pokemonsEvolution: List<EvolutionChain2>, val
                 }
             }
 
-
             itemView.setOnClickListener {
-
                 var pokemon1 = pokemonsEvolution.name1.capitalize(Locale.ROOT)
                 var pokemon2 = pokemonsEvolution.name2.capitalize(Locale.ROOT)
-
                 Toasty.custom(itemView.context, "$pokemon1 evolui para $pokemon2!", R.drawable.pokebola_icon, Color.BLACK, 4, true, true).show()
             }
         }
@@ -87,6 +91,8 @@ class EvolutionAdapter(private val pokemonsEvolution: List<EvolutionChain2>, val
 
             evolutionTxt1.text = pokemonsEvolution.name1.capitalize(Locale.ROOT)
             evolutionTxt2.text = pokemonsEvolution.name2.capitalize(Locale.ROOT)
+            spritePoke.importantForAccessibility
+            spritePoke.contentDescription = pokemonsEvolution.name1.capitalize(Locale.ROOT)
 
             val url1 = pokemonsEvolution.url1.split("/").map { it.trim() }
             val url2 = pokemonsEvolution.url2.split("/").map { it.trim() }

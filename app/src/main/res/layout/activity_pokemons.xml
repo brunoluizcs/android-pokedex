@@ -63,6 +63,7 @@
         android:layout_marginEnd="@dimen/default_size_16_dp"
         android:background="@drawable/background_search_button"
         android:contentDescription="@string/SpecSearchButton"
+        android:focusable="true"
         android:fontFamily="@font/avenir_medium"
         android:iconifiedByDefault="false"
         android:importantForAccessibility="yes"
@@ -70,6 +71,7 @@
         android:queryBackground="@android:color/transparent"
         android:queryHint="@string/searchButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitleHeader" />
 

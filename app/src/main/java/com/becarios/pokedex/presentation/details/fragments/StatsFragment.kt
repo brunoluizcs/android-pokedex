@@ -1,15 +1,19 @@
 package com.becarios.pokedex.presentation.details.fragments
 
+
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.pokemons.DamageViewModel
+import com.becarios.pokedex.presentation.pokemons.EnumPoke
 import kotlinx.android.synthetic.main.fragment_stats.*
 import java.util.*
 
@@ -19,12 +23,12 @@ class StatsFragment : Fragment() {
     var id = String()
     var damageType = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         val damageViewModel = ViewModelProvider(this).get(DamageViewModel::class.java)
-
         val statsViewModel: StatsViewModel = ViewModelProvider(this).get(StatsViewModel::class.java)
-        statsViewModel.mLiveData.observe(this, Observer {
 
+        statsViewModel.mLiveData.observe(this, Observer {
             it?.let { stats ->
                 with(recyclerViewStats) {
                     layoutManager = GridLayoutManager(this@StatsFragment.context, 1)
@@ -34,7 +38,7 @@ class StatsFragment : Fragment() {
                 }
             }
         })
-        statsViewModel.getStats(value)
+        statsViewModel.getStats(value, pokemonType)
 
         damageViewModel.mmLiveData.observe(this, {
             it?.let { damage ->
@@ -91,444 +95,661 @@ class StatsFragment : Fragment() {
 
                 when (damage[0].name0) {
                     "fire" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FIRE.typeName}")
                         weakness1.setImageResource(R.drawable.fire)
                         weakness1.setBackgroundResource(R.drawable.circle_fire)
                     }
                     "water" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.WATER.typeName}")
                         weakness1.setImageResource(R.drawable.water)
                         weakness1.setBackgroundResource(R.drawable.circle_water)
                     }
                     "ice" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ICE.typeName}")
                         weakness1.setImageResource(R.drawable.ice)
                         weakness1.setBackgroundResource(R.drawable.circle_ice)
                     }
                     "grass" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GRASS.typeName}")
                         weakness1.setImageResource(R.drawable.grass)
                         weakness1.setBackgroundResource(R.drawable.circle_grass)
                     }
                     "poison" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.POISON.typeName}")
                         weakness1.setImageResource(R.drawable.poison)
                         weakness1.setBackgroundResource(R.drawable.circle_poison)
                     }
                     "fighting" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FIGHTING.typeName}")
                         weakness1.setImageResource(R.drawable.fighting)
                         weakness1.setBackgroundResource(R.drawable.circle_fighting)
                     }
                     "rock" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ROCK.typeName}")
                         weakness1.setImageResource(R.drawable.rock)
                         weakness1.setBackgroundResource(R.drawable.circle_rock)
                     }
                     "flying" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FLYING.typeName}")
                         weakness1.setImageResource(R.drawable.flying)
                         weakness1.setBackgroundResource(R.drawable.circle_flying)
                     }
                     "dragon" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.DRAGON.typeName}")
                         weakness1.setImageResource(R.drawable.dragon)
                         weakness1.setBackgroundResource(R.drawable.circle_dragon)
                     }
                     "electric" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ELECTRIC.typeName}")
                         weakness1.setImageResource(R.drawable.electric)
                         weakness1.setBackgroundResource(R.drawable.circle_electric)
                     }
                     "bug" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.BUG.typeName}")
                         weakness1.setImageResource(R.drawable.bug)
                         weakness1.setBackgroundResource(R.drawable.circle_bug)
                     }
                     "psychic" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.PSYCHIC.typeName}")
                         weakness1.setImageResource(R.drawable.psychic)
                         weakness1.setBackgroundResource(R.drawable.circle_psychic)
                     }
                     "ground" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GROUND.typeName}")
                         weakness1.setImageResource(R.drawable.ground)
                         weakness1.setBackgroundResource(R.drawable.circle_ground)
                     }
                     "fairy" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FAIRY.typeName}")
                         weakness1.setImageResource(R.drawable.fairy)
                         weakness1.setBackgroundResource(R.drawable.circle_fairy)
                     }
                     "dark" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.DARK.typeName}")
                         weakness1.setImageResource(R.drawable.dark)
                         weakness1.setBackgroundResource(R.drawable.circle_dark)
                     }
                     "ghost" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GHOST.typeName}")
                         weakness1.setImageResource(R.drawable.ghost)
                         weakness1.setBackgroundResource(R.drawable.circle_ghost)
                     }
                     "steel" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.STEEL.typeName}")
                         weakness1.setImageResource(R.drawable.iron)
                         weakness1.setBackgroundResource(R.drawable.circle_iron)
                     }
                     "normal" -> {
+                        linearLayoutWeak1.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.NORMAL.typeName}")
                         weakness1.setImageResource(R.drawable.normal)
                         weakness1.setBackgroundResource(R.drawable.circle_normal)
                     }
                 }
                 when (damage[0].name1) {
                     "fire" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FIRE.typeName}")
                         weakness2.setImageResource(R.drawable.fire)
                         weakness2.setBackgroundResource(R.drawable.circle_fire)
                     }
                     "water" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.WATER.typeName}")
                         weakness2.setImageResource(R.drawable.water)
                         weakness2.setBackgroundResource(R.drawable.circle_water)
                     }
                     "ice" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ICE.typeName}")
                         weakness2.setImageResource(R.drawable.ice)
                         weakness2.setBackgroundResource(R.drawable.circle_ice)
                     }
                     "grass" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GRASS.typeName}")
                         weakness2.setImageResource(R.drawable.grass)
                         weakness2.setBackgroundResource(R.drawable.circle_grass)
                     }
                     "poison" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.POISON.typeName}")
                         weakness2.setImageResource(R.drawable.poison)
                         weakness2.setBackgroundResource(R.drawable.circle_poison)
                     }
                     "fighting" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FIGHTING.typeName}")
                         weakness2.setImageResource(R.drawable.fighting)
                         weakness2.setBackgroundResource(R.drawable.circle_fighting)
                     }
                     "rock" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ROCK.typeName}")
                         weakness2.setImageResource(R.drawable.rock)
                         weakness2.setBackgroundResource(R.drawable.circle_rock)
                     }
                     "flying" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FLYING.typeName}")
                         weakness2.setImageResource(R.drawable.flying)
                         weakness2.setBackgroundResource(R.drawable.circle_flying)
                     }
                     "dragon" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.DRAGON.typeName}")
                         weakness2.setImageResource(R.drawable.dragon)
                         weakness2.setBackgroundResource(R.drawable.circle_dragon)
                     }
                     "electric" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ELECTRIC.typeName}")
                         weakness2.setImageResource(R.drawable.electric)
                         weakness2.setBackgroundResource(R.drawable.circle_electric)
                     }
                     "bug" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.BUG.typeName}")
                         weakness2.setImageResource(R.drawable.bug)
                         weakness2.setBackgroundResource(R.drawable.circle_bug)
                     }
                     "psychic" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.PSYCHIC.typeName}")
                         weakness2.setImageResource(R.drawable.psychic)
                         weakness2.setBackgroundResource(R.drawable.circle_psychic)
                     }
                     "ground" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GROUND.typeName}")
                         weakness2.setImageResource(R.drawable.ground)
                         weakness2.setBackgroundResource(R.drawable.circle_ground)
                     }
                     "fairy" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FAIRY.typeName}")
                         weakness2.setImageResource(R.drawable.fairy)
                         weakness2.setBackgroundResource(R.drawable.circle_fairy)
                     }
                     "dark" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.DARK.typeName}")
                         weakness2.setImageResource(R.drawable.dark)
                         weakness2.setBackgroundResource(R.drawable.circle_dark)
                     }
                     "ghost" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GHOST.typeName}")
                         weakness2.setImageResource(R.drawable.ghost)
                         weakness2.setBackgroundResource(R.drawable.circle_ghost)
                     }
                     "steel" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.STEEL.typeName}")
                         weakness2.setImageResource(R.drawable.iron)
                         weakness2.setBackgroundResource(R.drawable.circle_iron)
                     }
                     "normal" -> {
+                        linearLayoutWeak2.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.NORMAL.typeName}")
                         weakness2.setImageResource(R.drawable.normal)
                         weakness2.setBackgroundResource(R.drawable.circle_normal)
                     }
                 }
+
                 when (damage[0].name2) {
                     "fire" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FIRE.typeName}")
                         weakness3.setImageResource(R.drawable.fire)
                         weakness3.setBackgroundResource(R.drawable.circle_fire)
                     }
                     "water" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.WATER.typeName}")
                         weakness3.setImageResource(R.drawable.water)
                         weakness3.setBackgroundResource(R.drawable.circle_water)
                     }
                     "ice" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ICE.typeName}")
                         weakness3.setImageResource(R.drawable.ice)
                         weakness3.setBackgroundResource(R.drawable.circle_ice)
                     }
                     "grass" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GRASS.typeName}")
                         weakness3.setImageResource(R.drawable.grass)
                         weakness3.setBackgroundResource(R.drawable.circle_grass)
                     }
                     "poison" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.POISON.typeName}")
                         weakness3.setImageResource(R.drawable.poison)
                         weakness3.setBackgroundResource(R.drawable.circle_poison)
                     }
                     "fighting" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FIGHTING.typeName}")
                         weakness3.setImageResource(R.drawable.fighting)
                         weakness3.setBackgroundResource(R.drawable.circle_fighting)
                     }
                     "rock" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ROCK.typeName}")
                         weakness3.setImageResource(R.drawable.rock)
                         weakness3.setBackgroundResource(R.drawable.circle_rock)
                     }
                     "flying" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FLYING.typeName}")
                         weakness3.setImageResource(R.drawable.flying)
                         weakness3.setBackgroundResource(R.drawable.circle_flying)
                     }
                     "dragon" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.DRAGON.typeName}")
                         weakness3.setImageResource(R.drawable.dragon)
                         weakness3.setBackgroundResource(R.drawable.circle_dragon)
                     }
                     "electric" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.ELECTRIC.typeName}")
                         weakness3.setImageResource(R.drawable.electric)
                         weakness3.setBackgroundResource(R.drawable.circle_electric)
                     }
                     "bug" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.BUG.typeName}")
                         weakness3.setImageResource(R.drawable.bug)
                         weakness3.setBackgroundResource(R.drawable.circle_bug)
                     }
                     "psychic" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.PSYCHIC.typeName}")
                         weakness3.setImageResource(R.drawable.psychic)
                         weakness3.setBackgroundResource(R.drawable.circle_psychic)
                     }
                     "ground" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GROUND.typeName}")
                         weakness3.setImageResource(R.drawable.ground)
                         weakness3.setBackgroundResource(R.drawable.circle_ground)
                     }
                     "fairy" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.FAIRY.typeName}")
                         weakness3.setImageResource(R.drawable.fairy)
                         weakness3.setBackgroundResource(R.drawable.circle_fairy)
                     }
                     "dark" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.DARK.typeName}")
                         weakness3.setImageResource(R.drawable.dark)
                         weakness3.setBackgroundResource(R.drawable.circle_dark)
                     }
                     "ghost" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.GHOST.typeName}")
                         weakness3.setImageResource(R.drawable.ghost)
                         weakness3.setBackgroundResource(R.drawable.circle_ghost)
                     }
                     "steel" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.STEEL.typeName}")
                         weakness3.setImageResource(R.drawable.iron)
                         weakness3.setBackgroundResource(R.drawable.circle_iron)
                     }
                     "normal" -> {
+                        linearLayoutWeak3.contentDescription =
+                            ("Fraco contra pokémonsdo tipo: ${EnumPoke.NORMAL.typeName}")
                         weakness3.setImageResource(R.drawable.normal)
                         weakness3.setBackgroundResource(R.drawable.circle_normal)
                     }
                 }
                 when (damage[0].name3) {
                     "fire" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FIRE.typeName}")
                         resist1.setImageResource(R.drawable.fire)
                         resist1.setBackgroundResource(R.drawable.circle_fire)
                     }
                     "water" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.WATER.typeName}")
                         resist1.setImageResource(R.drawable.water)
                         resist1.setBackgroundResource(R.drawable.circle_water)
                     }
                     "ice" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ICE.typeName}")
                         resist1.setImageResource(R.drawable.ice)
                         resist1.setBackgroundResource(R.drawable.circle_ice)
                     }
                     "grass" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GRASS.typeName}")
                         resist1.setImageResource(R.drawable.grass)
                         resist1.setBackgroundResource(R.drawable.circle_grass)
                     }
                     "poison" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.POISON.typeName}")
                         resist1.setImageResource(R.drawable.poison)
                         resist1.setBackgroundResource(R.drawable.circle_poison)
                     }
                     "fighting" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FIGHTING.typeName}")
                         resist1.setImageResource(R.drawable.fighting)
                         resist1.setBackgroundResource(R.drawable.circle_fighting)
                     }
                     "rock" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ROCK.typeName}")
                         resist1.setImageResource(R.drawable.rock)
                         resist1.setBackgroundResource(R.drawable.circle_rock)
                     }
                     "flying" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FLYING.typeName}")
                         resist1.setImageResource(R.drawable.flying)
                         resist1.setBackgroundResource(R.drawable.circle_flying)
                     }
                     "dragon" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.DRAGON.typeName}")
                         resist1.setImageResource(R.drawable.dragon)
                         resist1.setBackgroundResource(R.drawable.circle_dragon)
                     }
                     "electric" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ELECTRIC.typeName}")
                         resist1.setImageResource(R.drawable.electric)
                         resist1.setBackgroundResource(R.drawable.circle_electric)
                     }
                     "bug" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.BUG.typeName}")
                         resist1.setImageResource(R.drawable.bug)
                         resist1.setBackgroundResource(R.drawable.circle_bug)
                     }
                     "psychic" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.PSYCHIC.typeName}")
                         resist1.setImageResource(R.drawable.psychic)
                         resist1.setBackgroundResource(R.drawable.circle_psychic)
                     }
                     "ground" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GROUND.typeName}")
                         resist1.setImageResource(R.drawable.ground)
                         resist1.setBackgroundResource(R.drawable.circle_ground)
                     }
                     "fairy" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FAIRY.typeName}")
                         resist1.setImageResource(R.drawable.fairy)
                         resist1.setBackgroundResource(R.drawable.circle_fairy)
                     }
                     "dark" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.DARK.typeName}")
                         resist1.setImageResource(R.drawable.dark)
                         resist1.setBackgroundResource(R.drawable.circle_dark)
                     }
                     "ghost" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GHOST.typeName}")
                         resist1.setImageResource(R.drawable.ghost)
                         resist1.setBackgroundResource(R.drawable.circle_ghost)
                     }
                     "steel" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.STEEL.typeName}")
                         resist1.setImageResource(R.drawable.iron)
                         resist1.setBackgroundResource(R.drawable.circle_iron)
                     }
                     "normal" -> {
+                        linearLayoutResist1.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.NORMAL.typeName}")
                         resist1.setImageResource(R.drawable.normal)
                         resist1.setBackgroundResource(R.drawable.circle_normal)
                     }
                 }
                 when (damage[0].name4) {
                     "fire" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FIRE.typeName}")
                         resist2.setImageResource(R.drawable.fire)
                         resist2.setBackgroundResource(R.drawable.circle_fire)
                     }
                     "water" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.WATER.typeName}")
                         resist2.setImageResource(R.drawable.water)
                         resist2.setBackgroundResource(R.drawable.circle_water)
                     }
                     "ice" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ICE.typeName}")
                         resist2.setImageResource(R.drawable.ice)
                         resist2.setBackgroundResource(R.drawable.circle_ice)
                     }
                     "grass" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GRASS.typeName}")
                         resist2.setImageResource(R.drawable.grass)
                         resist2.setBackgroundResource(R.drawable.circle_grass)
                     }
                     "poison" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.POISON.typeName}")
                         resist2.setImageResource(R.drawable.poison)
                         resist2.setBackgroundResource(R.drawable.circle_poison)
                     }
                     "fighting" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FIGHTING.typeName}")
                         resist2.setImageResource(R.drawable.fighting)
                         resist2.setBackgroundResource(R.drawable.circle_fighting)
                     }
                     "rock" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ROCK.typeName}")
                         resist2.setImageResource(R.drawable.rock)
                         resist2.setBackgroundResource(R.drawable.circle_rock)
                     }
                     "flying" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FLYING.typeName}")
                         resist2.setImageResource(R.drawable.flying)
                         resist2.setBackgroundResource(R.drawable.circle_flying)
                     }
                     "dragon" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.DRAGON.typeName}")
                         resist2.setImageResource(R.drawable.dragon)
                         resist2.setBackgroundResource(R.drawable.circle_dragon)
                     }
                     "electric" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ELECTRIC.typeName}")
                         resist2.setImageResource(R.drawable.electric)
                         resist2.setBackgroundResource(R.drawable.circle_electric)
                     }
                     "bug" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.BUG.typeName}")
                         resist2.setImageResource(R.drawable.bug)
                         resist2.setBackgroundResource(R.drawable.circle_bug)
                     }
                     "psychic" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.PSYCHIC.typeName}")
                         resist2.setImageResource(R.drawable.psychic)
                         resist2.setBackgroundResource(R.drawable.circle_psychic)
                     }
                     "ground" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GROUND.typeName}")
                         resist2.setImageResource(R.drawable.ground)
                         resist2.setBackgroundResource(R.drawable.circle_ground)
                     }
                     "fairy" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FAIRY.typeName}")
                         resist2.setImageResource(R.drawable.fairy)
                         resist2.setBackgroundResource(R.drawable.circle_fairy)
                     }
                     "dark" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.DARK.typeName}")
                         resist2.setImageResource(R.drawable.dark)
                         resist2.setBackgroundResource(R.drawable.circle_dark)
                     }
                     "ghost" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GHOST.typeName}")
                         resist2.setImageResource(R.drawable.ghost)
                         resist2.setBackgroundResource(R.drawable.circle_ghost)
                     }
                     "steel" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.STEEL.typeName}")
                         resist2.setImageResource(R.drawable.iron)
                         resist2.setBackgroundResource(R.drawable.circle_iron)
                     }
                     "normal" -> {
+                        linearLayoutResist2.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.NORMAL.typeName}")
                         resist2.setImageResource(R.drawable.normal)
                         resist2.setBackgroundResource(R.drawable.circle_normal)
                     }
                 }
                 when (damage[0].name5) {
                     "fire" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FIRE.typeName}")
                         resist3.setImageResource(R.drawable.fire)
                         resist3.setBackgroundResource(R.drawable.circle_fire)
                     }
                     "water" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.WATER.typeName}")
                         resist3.setImageResource(R.drawable.water)
                         resist3.setBackgroundResource(R.drawable.circle_water)
                     }
                     "ice" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ICE.typeName}")
                         resist3.setImageResource(R.drawable.ice)
                         resist3.setBackgroundResource(R.drawable.circle_ice)
                     }
                     "grass" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GRASS.typeName}")
                         resist3.setImageResource(R.drawable.grass)
                         resist3.setBackgroundResource(R.drawable.circle_grass)
                     }
                     "poison" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.POISON.typeName}")
                         resist3.setImageResource(R.drawable.poison)
                         resist3.setBackgroundResource(R.drawable.circle_poison)
                     }
                     "fighting" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FIGHTING.typeName}")
                         resist3.setImageResource(R.drawable.fighting)
                         resist3.setBackgroundResource(R.drawable.circle_fighting)
                     }
                     "rock" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ROCK.typeName}")
                         resist3.setImageResource(R.drawable.rock)
                         resist3.setBackgroundResource(R.drawable.circle_rock)
                     }
                     "flying" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FLYING.typeName}")
                         resist3.setImageResource(R.drawable.flying)
                         resist3.setBackgroundResource(R.drawable.circle_flying)
                     }
                     "dragon" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.DRAGON.typeName}")
                         resist3.setImageResource(R.drawable.dragon)
                         resist3.setBackgroundResource(R.drawable.circle_dragon)
                     }
                     "electric" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.ELECTRIC.typeName}")
                         resist3.setImageResource(R.drawable.electric)
                         resist3.setBackgroundResource(R.drawable.circle_electric)
                     }
                     "bug" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.BUG.typeName}")
                         resist3.setImageResource(R.drawable.bug)
                         resist3.setBackgroundResource(R.drawable.circle_bug)
                     }
                     "psychic" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.PSYCHIC.typeName}")
                         resist3.setImageResource(R.drawable.psychic)
                         resist3.setBackgroundResource(R.drawable.circle_psychic)
                     }
                     "ground" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GROUND.typeName}")
                         resist3.setImageResource(R.drawable.ground)
                         resist3.setBackgroundResource(R.drawable.circle_ground)
                     }
                     "fairy" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.FAIRY.typeName}")
                         resist3.setImageResource(R.drawable.fairy)
                         resist3.setBackgroundResource(R.drawable.circle_fairy)
                     }
                     "dark" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.DARK.typeName}")
                         resist3.setImageResource(R.drawable.dark)
                         resist3.setBackgroundResource(R.drawable.circle_dark)
                     }
                     "ghost" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.GHOST.typeName}")
                         resist3.setImageResource(R.drawable.ghost)
                         resist3.setBackgroundResource(R.drawable.circle_ghost)
                     }
                     "steel" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.STEEL.typeName}")
                         resist3.setImageResource(R.drawable.iron)
                         resist3.setBackgroundResource(R.drawable.circle_iron)
                     }
                     "normal" -> {
+                        linearLayoutResist3.contentDescription =
+                            ("Resistente contra pokémonsdo tipo: ${EnumPoke.NORMAL.typeName}")
                         resist3.setImageResource(R.drawable.normal)
                         resist3.setBackgroundResource(R.drawable.circle_normal)
                     }
@@ -562,12 +783,18 @@ class StatsFragment : Fragment() {
         }
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onStart() {
         super.onStart()
-        initDamageRelations()
+        changeTitlesColor()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_stats, container, false)
     }
 
@@ -583,560 +810,82 @@ class StatsFragment : Fragment() {
         }
     }
 
-    private fun initDamageRelations() {
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun changeTitlesColor() {
         when (pokemonType) {
-            "fire" -> {
-                weakness1.setImageResource(R.drawable.fire)
-                weakness1.setBackgroundResource(R.drawable.circle_fire)
-                txtWeakness1.text = getString(R.string.Fire)
+            util.Constant.FIRE -> {
+                txtWeak.setTextAppearance(R.style.Fire)
+                txtResist.setTextAppearance(R.style.Fire)
             }
-            "water" -> {
-                weakness1.setImageResource(R.drawable.water)
-                weakness1.setBackgroundResource(R.drawable.circle_water)
-                txtWeakness1.text = getString(R.string.Water)
+            util.Constant.WATER -> {
+                txtWeak.setTextAppearance(R.style.Water)
+                txtResist.setTextAppearance(R.style.Water)
             }
-            "ice" -> {
-                weakness1.setImageResource(R.drawable.ice)
-                weakness1.setBackgroundResource(R.drawable.circle_ice)
-                txtWeakness1.text = getString(R.string.Ice)
+            util.Constant.ICE -> {
+                txtWeak.setTextAppearance(R.style.Ice)
+                txtResist.setTextAppearance(R.style.Ice)
             }
-            "grass" -> {
-                weakness1.setImageResource(R.drawable.grass)
-                weakness1.setBackgroundResource(R.drawable.circle_grass)
-                txtWeakness1.text = getString(R.string.Grass)
+            util.Constant.GRASS -> {
+                txtWeak.setTextAppearance(R.style.Grass)
+                txtResist.setTextAppearance(R.style.Grass)
             }
-            "poison" -> {
-                weakness1.setImageResource(R.drawable.poison)
-                weakness1.setBackgroundResource(R.drawable.circle_poison)
-                txtWeakness1.text = getString(R.string.Poison)
+            util.Constant.POISON -> {
+                txtWeak.setTextAppearance(R.style.Poison)
+                txtResist.setTextAppearance(R.style.Poison)
             }
-            "fighting" -> {
-                weakness1.setImageResource(R.drawable.fighting)
-                weakness1.setBackgroundResource(R.drawable.circle_fighting)
-                txtWeakness1.text = getString(R.string.Fighting)
+            util.Constant.FIGHTING -> {
+                txtWeak.setTextAppearance(R.style.Fight)
+                txtResist.setTextAppearance(R.style.Fight)
             }
-            "rock" -> {
-                weakness1.setImageResource(R.drawable.rock)
-                weakness1.setBackgroundResource(R.drawable.circle_rock)
-                txtWeakness1.text = getString(R.string.Rock)
+            util.Constant.ROCK -> {
+                txtWeak.setTextAppearance(R.style.Rock)
+                txtResist.setTextAppearance(R.style.Rock)
             }
-            "flying" -> {
-                weakness1.setImageResource(R.drawable.flying)
-                weakness1.setBackgroundResource(R.drawable.circle_flying)
-                txtWeakness1.text = getString(R.string.Flying)
+            util.Constant.FLYING -> {
+                txtWeak.setTextAppearance(R.style.Flying)
+                txtResist.setTextAppearance(R.style.Flying)
             }
-            "dragon" -> {
-                weakness1.setImageResource(R.drawable.dragon)
-                weakness1.setBackgroundResource(R.drawable.circle_dragon)
-                txtWeakness1.text = getString(R.string.Dragon)
+            util.Constant.DRAGON -> {
+                txtWeak.setTextAppearance(R.style.Dragon)
+                txtResist.setTextAppearance(R.style.Dragon)
             }
-            "electric" -> {
-                weakness1.setImageResource(R.drawable.electric)
-                weakness1.setBackgroundResource(R.drawable.circle_electric)
-                txtWeakness1.text = getString(R.string.Electric)
+            util.Constant.ELECTRIC -> {
+                txtWeak.setTextAppearance(R.style.Electric)
+                txtResist.setTextAppearance(R.style.Electric)
             }
-            "bug" -> {
-                weakness1.setImageResource(R.drawable.bug)
-                weakness1.setBackgroundResource(R.drawable.circle_bug)
-                txtWeakness1.text = getString(R.string.Bug)
+            util.Constant.BUG -> {
+                txtWeak.setTextAppearance(R.style.Bug)
+                txtResist.setTextAppearance(R.style.Bug)
             }
-            "psychic" -> {
-                weakness1.setImageResource(R.drawable.psychic)
-                weakness1.setBackgroundResource(R.drawable.circle_psychic)
-                txtWeakness1.text = getString(R.string.Psychic)
+            util.Constant.PSYCHIC -> {
+                txtWeak.setTextAppearance(R.style.Psychic)
+                txtResist.setTextAppearance(R.style.Psychic)
             }
-            "ground" -> {
-                weakness1.setImageResource(R.drawable.ground)
-                weakness1.setBackgroundResource(R.drawable.circle_ground)
-                txtWeakness1.text = getString(R.string.Ground)
+            util.Constant.GROUND -> {
+                txtWeak.setTextAppearance(R.style.Ground)
+                txtResist.setTextAppearance(R.style.Ground)
             }
-            "fairy" -> {
-                weakness1.setImageResource(R.drawable.fairy)
-                weakness1.setBackgroundResource(R.drawable.circle_fairy)
-                txtWeakness1.text = getString(R.string.Fairy)
+            util.Constant.FAIRY -> {
+                txtWeak.setTextAppearance(R.style.Fairy)
+                txtResist.setTextAppearance(R.style.Fairy)
             }
-            "dark" -> {
-                weakness1.setImageResource(R.drawable.dark)
-                weakness1.setBackgroundResource(R.drawable.circle_dark)
-                txtWeakness1.text = getString(R.string.Dark)
+            util.Constant.DARK -> {
+                txtWeak.setTextAppearance(R.style.Dark)
+                txtResist.setTextAppearance(R.style.Dark)
             }
-            "ghost" -> {
-                weakness1.setImageResource(R.drawable.ghost)
-                weakness1.setBackgroundResource(R.drawable.circle_ghost)
-                txtWeakness1.text = getString(R.string.Ghost)
+            util.Constant.GHOST -> {
+                txtWeak.setTextAppearance(R.style.Ghost)
+                txtResist.setTextAppearance(R.style.Ghost)
             }
-            "steel" -> {
-                weakness1.setImageResource(R.drawable.iron)
-                weakness1.setBackgroundResource(R.drawable.circle_iron)
-                txtWeakness1.text = getString(R.string.Steel)
+            util.Constant.STEEL -> {
+                txtWeak.setTextAppearance(R.style.Steel)
+                txtResist.setTextAppearance(R.style.Steel)
             }
-            "normal" -> {
-                weakness1.setImageResource(R.drawable.normal)
-                weakness1.setBackgroundResource(R.drawable.circle_normal)
-                txtWeakness1.text = getString(R.string.Normal)
+            util.Constant.NORMAL -> {
+                txtWeak.setTextAppearance(R.style.Normal)
+                txtResist.setTextAppearance(R.style.Normal)
             }
         }
-        when (pokemonType) {
-            "fire" -> {
-                weakness2.setImageResource(R.drawable.fire)
-                weakness2.setBackgroundResource(R.drawable.circle_fire)
-                txtWeakness2.text = getString(R.string.Fire)
-            }
-            "water" -> {
-                weakness2.setImageResource(R.drawable.water)
-                weakness2.setBackgroundResource(R.drawable.circle_water)
-                txtWeakness2.text = getString(R.string.Water)
-            }
-            "ice" -> {
-                weakness2.setImageResource(R.drawable.ice)
-                weakness2.setBackgroundResource(R.drawable.circle_ice)
-                txtWeakness2.text = getString(R.string.Ice)
-            }
-            "grass" -> {
-                weakness2.setImageResource(R.drawable.grass)
-                weakness2.setBackgroundResource(R.drawable.circle_grass)
-                txtWeakness2.text = getString(R.string.Grass)
-            }
-            "poison" -> {
-                weakness2.setImageResource(R.drawable.poison)
-                weakness2.setBackgroundResource(R.drawable.circle_poison)
-                txtWeakness2.text = getString(R.string.Poison)
-            }
-            "fighting" -> {
-                weakness2.setImageResource(R.drawable.fighting)
-                weakness2.setBackgroundResource(R.drawable.circle_fighting)
-                txtWeakness2.text = getString(R.string.Fighting)
-            }
-            "rock" -> {
-                weakness2.setImageResource(R.drawable.rock)
-                weakness2.setBackgroundResource(R.drawable.circle_rock)
-                txtWeakness2.text = getString(R.string.Rock)
-            }
-            "flying" -> {
-                weakness2.setImageResource(R.drawable.flying)
-                weakness2.setBackgroundResource(R.drawable.circle_flying)
-                txtWeakness2.text = getString(R.string.Flying)
-            }
-            "dragon" -> {
-                weakness2.setImageResource(R.drawable.dragon)
-                weakness2.setBackgroundResource(R.drawable.circle_dragon)
-                txtWeakness2.text = getString(R.string.Dragon)
-            }
-            "electric" -> {
-                weakness2.setImageResource(R.drawable.electric)
-                weakness2.setBackgroundResource(R.drawable.circle_electric)
-                txtWeakness2.text = getString(R.string.Electric)
-            }
-            "bug" -> {
-                weakness2.setImageResource(R.drawable.bug)
-                weakness2.setBackgroundResource(R.drawable.circle_bug)
-                txtWeakness2.text = getString(R.string.Bug)
-            }
-            "psychic" -> {
-                weakness2.setImageResource(R.drawable.psychic)
-                weakness2.setBackgroundResource(R.drawable.circle_psychic)
-                txtWeakness2.text = getString(R.string.Psychic)
-            }
-            "ground" -> {
-                weakness2.setImageResource(R.drawable.ground)
-                weakness2.setBackgroundResource(R.drawable.circle_ground)
-                txtWeakness2.text = getString(R.string.Ground)
-            }
-            "fairy" -> {
-                weakness2.setImageResource(R.drawable.fairy)
-                weakness2.setBackgroundResource(R.drawable.circle_fairy)
-                txtWeakness2.text = getString(R.string.Fairy)
-            }
-            "dark" -> {
-                weakness2.setImageResource(R.drawable.dark)
-                weakness2.setBackgroundResource(R.drawable.circle_dark)
-                txtWeakness2.text = getString(R.string.Dark)
-            }
-            "ghost" -> {
-                weakness2.setImageResource(R.drawable.ghost)
-                weakness2.setBackgroundResource(R.drawable.circle_ghost)
-                txtWeakness2.text = getString(R.string.Ghost)
-            }
-            "steel" -> {
-                weakness2.setImageResource(R.drawable.iron)
-                weakness2.setBackgroundResource(R.drawable.circle_iron)
-                txtWeakness2.text = getString(R.string.Steel)
-            }
-            "normal" -> {
-                weakness2.setImageResource(R.drawable.normal)
-                weakness2.setBackgroundResource(R.drawable.circle_normal)
-                txtWeakness2.text = getString(R.string.Normal)
-            }
-        }
-        when (pokemonType) {
-            "fire" -> {
-                weakness3.setImageResource(R.drawable.fire)
-                weakness3.setBackgroundResource(R.drawable.circle_fire)
-                txtWeakness3.text = getString(R.string.Fire)
-            }
-            "water" -> {
-                weakness3.setImageResource(R.drawable.water)
-                weakness3.setBackgroundResource(R.drawable.circle_water)
-                txtWeakness3.text = getString(R.string.Water)
-            }
-            "ice" -> {
-                weakness3.setImageResource(R.drawable.ice)
-                weakness3.setBackgroundResource(R.drawable.circle_ice)
-                txtWeakness3.text = getString(R.string.Ice)
-            }
-            "grass" -> {
-                weakness3.setImageResource(R.drawable.grass)
-                weakness3.setBackgroundResource(R.drawable.circle_grass)
-                txtWeakness3.text = getString(R.string.Grass)
-            }
-            "poison" -> {
-                weakness3.setImageResource(R.drawable.poison)
-                weakness3.setBackgroundResource(R.drawable.circle_poison)
-                txtWeakness3.text = getString(R.string.Poison)
-            }
-            "fighting" -> {
-                weakness3.setImageResource(R.drawable.fighting)
-                weakness3.setBackgroundResource(R.drawable.circle_fighting)
-                txtWeakness3.text = getString(R.string.Fighting)
-            }
-            "rock" -> {
-                weakness3.setImageResource(R.drawable.rock)
-                weakness3.setBackgroundResource(R.drawable.circle_rock)
-                txtWeakness3.text = getString(R.string.Rock)
-            }
-            "flying" -> {
-                weakness3.setImageResource(R.drawable.flying)
-                weakness3.setBackgroundResource(R.drawable.circle_flying)
-                txtWeakness3.text = getString(R.string.Flying)
-            }
-            "dragon" -> {
-                weakness3.setImageResource(R.drawable.dragon)
-                weakness3.setBackgroundResource(R.drawable.circle_dragon)
-                txtWeakness3.text = getString(R.string.Dragon)
-            }
-            "electric" -> {
-                weakness3.setImageResource(R.drawable.electric)
-                weakness3.setBackgroundResource(R.drawable.circle_electric)
-                txtWeakness3.text = getString(R.string.Electric)
-            }
-            "bug" -> {
-                weakness3.setImageResource(R.drawable.bug)
-                weakness3.setBackgroundResource(R.drawable.circle_bug)
-                txtWeakness3.text = getString(R.string.Bug)
-            }
-            "psychic" -> {
-                weakness3.setImageResource(R.drawable.psychic)
-                weakness3.setBackgroundResource(R.drawable.circle_psychic)
-                txtWeakness3.text = getString(R.string.Psychic)
-            }
-            "ground" -> {
-                weakness3.setImageResource(R.drawable.ground)
-                weakness3.setBackgroundResource(R.drawable.circle_ground)
-                txtWeakness3.text = getString(R.string.Grass)
-            }
-            "fairy" -> {
-                weakness3.setImageResource(R.drawable.fairy)
-                weakness3.setBackgroundResource(R.drawable.circle_fairy)
-                txtWeakness3.text = getString(R.string.Fairy)
-            }
-            "dark" -> {
-                weakness3.setImageResource(R.drawable.dark)
-                weakness3.setBackgroundResource(R.drawable.circle_dark)
-                txtWeakness3.text = getString(R.string.Dark)
-            }
-            "ghost" -> {
-                weakness3.setImageResource(R.drawable.ghost)
-                weakness3.setBackgroundResource(R.drawable.circle_ghost)
-                txtWeakness3.text = getString(R.string.Ghost)
-            }
-            "steel" -> {
-                weakness3.setImageResource(R.drawable.iron)
-                weakness3.setBackgroundResource(R.drawable.circle_iron)
-                txtWeakness3.text = getString(R.string.Steel)
-            }
-            "normal" -> {
-                weakness3.setImageResource(R.drawable.normal)
-                weakness3.setBackgroundResource(R.drawable.circle_normal)
-                txtWeakness3.text = getString(R.string.Normal)
-            }
-        }
-        when (pokemonType) {
-            "fire" -> {
-                resist1.setImageResource(R.drawable.fire)
-                resist1.setBackgroundResource(R.drawable.circle_fire)
-                txtResist1.text = getString(R.string.Fire)
-            }
-            "water" -> {
-                resist1.setImageResource(R.drawable.water)
-                resist1.setBackgroundResource(R.drawable.circle_water)
-                txtResist1.text = getString(R.string.Water)
-            }
-            "ice" -> {
-                resist1.setImageResource(R.drawable.ice)
-                resist1.setBackgroundResource(R.drawable.circle_ice)
-                txtResist1.text = getString(R.string.Ice)
-            }
-            "grass" -> {
-                resist1.setImageResource(R.drawable.grass)
-                resist1.setBackgroundResource(R.drawable.circle_grass)
-                txtResist1.text = getString(R.string.Grass)
-            }
-            "poison" -> {
-                resist1.setImageResource(R.drawable.poison)
-                resist1.setBackgroundResource(R.drawable.circle_poison)
-                txtResist1.text = getString(R.string.Poison)
-            }
-            "fighting" -> {
-                resist1.setImageResource(R.drawable.fighting)
-                resist1.setBackgroundResource(R.drawable.circle_fighting)
-                txtResist1.text = getString(R.string.Fighting)
-            }
-            "rock" -> {
-                resist1.setImageResource(R.drawable.rock)
-                resist1.setBackgroundResource(R.drawable.circle_rock)
-                txtResist1.text = getString(R.string.Rock)
-            }
-            "flying" -> {
-                resist1.setImageResource(R.drawable.flying)
-                resist1.setBackgroundResource(R.drawable.circle_flying)
-                txtResist1.text = getString(R.string.Flying)
-            }
-            "dragon" -> {
-                resist1.setImageResource(R.drawable.dragon)
-                resist1.setBackgroundResource(R.drawable.circle_dragon)
-                txtResist1.text = getString(R.string.Dragon)
-            }
-            "electric" -> {
-                resist1.setImageResource(R.drawable.electric)
-                resist1.setBackgroundResource(R.drawable.circle_electric)
-                txtResist1.text = getString(R.string.Electric)
-            }
-            "bug" -> {
-                resist1.setImageResource(R.drawable.bug)
-                resist1.setBackgroundResource(R.drawable.circle_bug)
-                txtResist1.text = getString(R.string.Bug)
-            }
-            "psychic" -> {
-                resist1.setImageResource(R.drawable.psychic)
-                resist1.setBackgroundResource(R.drawable.circle_psychic)
-                txtResist1.text = getString(R.string.Psychic)
-            }
-            "ground" -> {
-                resist1.setImageResource(R.drawable.ground)
-                resist1.setBackgroundResource(R.drawable.circle_ground)
-                txtResist1.text = getString(R.string.Ground)
-            }
-            "fairy" -> {
-                resist1.setImageResource(R.drawable.fairy)
-                resist1.setBackgroundResource(R.drawable.circle_fairy)
-                txtResist1.text = getString(R.string.Fairy)
-            }
-            "dark" -> {
-                resist1.setImageResource(R.drawable.dark)
-                resist1.setBackgroundResource(R.drawable.circle_dark)
-                txtResist1.text = getString(R.string.Dark)
-            }
-            "ghost" -> {
-                resist1.setImageResource(R.drawable.ghost)
-                resist1.setBackgroundResource(R.drawable.circle_ghost)
-                txtResist1.text = getString(R.string.Ghost)
-            }
-            "steel" -> {
-                resist1.setImageResource(R.drawable.iron)
-                resist1.setBackgroundResource(R.drawable.circle_iron)
-                txtResist1.text = getString(R.string.Steel)
-            }
-            "normal" -> {
-                resist1.setImageResource(R.drawable.normal)
-                resist1.setBackgroundResource(R.drawable.circle_normal)
-                txtResist1.text = getString(R.string.Normal)
-            }
-        }
-        when (pokemonType) {
-            "fire" -> {
-                resist2.setImageResource(R.drawable.fire)
-                resist2.setBackgroundResource(R.drawable.circle_fire)
-                txtResist2.text = getString(R.string.Fire)
-            }
-            "water" -> {
-                resist2.setImageResource(R.drawable.water)
-                resist2.setBackgroundResource(R.drawable.circle_water)
-                txtResist2.text = getString(R.string.Water)
-            }
-            "ice" -> {
-                resist2.setImageResource(R.drawable.ice)
-                resist2.setBackgroundResource(R.drawable.circle_ice)
-                txtResist2.text = getString(R.string.Ice)
-            }
-            "grass" -> {
-                resist2.setImageResource(R.drawable.grass)
-                resist2.setBackgroundResource(R.drawable.circle_grass)
-                txtResist2.text = getString(R.string.Grass)
-            }
-            "poison" -> {
-                resist2.setImageResource(R.drawable.poison)
-                resist2.setBackgroundResource(R.drawable.circle_poison)
-                txtResist2.text = getString(R.string.Poison)
-            }
-            "fighting" -> {
-                resist2.setImageResource(R.drawable.fighting)
-                resist2.setBackgroundResource(R.drawable.circle_fighting)
-                txtResist2.text = getString(R.string.Fighting)
-            }
-            "rock" -> {
-                resist2.setImageResource(R.drawable.rock)
-                resist2.setBackgroundResource(R.drawable.circle_rock)
-                txtResist2.text = getString(R.string.Rock)
-            }
-            "flying" -> {
-                resist2.setImageResource(R.drawable.flying)
-                resist2.setBackgroundResource(R.drawable.circle_flying)
-                txtResist2.text = getString(R.string.Flying)
-            }
-            "dragon" -> {
-                resist2.setImageResource(R.drawable.dragon)
-                resist2.setBackgroundResource(R.drawable.circle_dragon)
-                txtResist2.text = getString(R.string.Dragon)
-            }
-            "electric" -> {
-                resist2.setImageResource(R.drawable.electric)
-                resist2.setBackgroundResource(R.drawable.circle_electric)
-                txtResist2.text = getString(R.string.Electric)
-            }
-            "bug" -> {
-                resist2.setImageResource(R.drawable.bug)
-                resist2.setBackgroundResource(R.drawable.circle_bug)
-                txtResist2.text = getString(R.string.Bug)
-            }
-            "psychic" -> {
-                resist2.setImageResource(R.drawable.psychic)
-                resist2.setBackgroundResource(R.drawable.circle_psychic)
-                txtResist2.text = getString(R.string.Psychic)
-            }
-            "ground" -> {
-                resist2.setImageResource(R.drawable.ground)
-                resist2.setBackgroundResource(R.drawable.circle_ground)
-                txtResist2.text = getString(R.string.Ground)
-            }
-            "fairy" -> {
-                resist2.setImageResource(R.drawable.fairy)
-                resist2.setBackgroundResource(R.drawable.circle_fairy)
-                txtResist2.text = getString(R.string.Fairy)
-            }
-            "dark" -> {
-                resist2.setImageResource(R.drawable.dark)
-                resist2.setBackgroundResource(R.drawable.circle_dark)
-                txtResist2.text = getString(R.string.Dark)
-            }
-            "ghost" -> {
-                resist2.setImageResource(R.drawable.ghost)
-                resist2.setBackgroundResource(R.drawable.circle_ghost)
-                txtResist2.text = getString(R.string.Ghost)
-            }
-            "steel" -> {
-                resist2.setImageResource(R.drawable.iron)
-                resist2.setBackgroundResource(R.drawable.circle_iron)
-                txtResist2.text = getString(R.string.Steel)
-            }
-            "normal" -> {
-                resist2.setImageResource(R.drawable.normal)
-                resist2.setBackgroundResource(R.drawable.circle_normal)
-                txtResist2.text = getString(R.string.Normal)
-            }
-        }
-        when (pokemonType) {
-            "fire" -> {
-                resist3.setImageResource(R.drawable.fire)
-                resist3.setBackgroundResource(R.drawable.circle_fire)
-                txtResist3.text = getString(R.string.Fire)
-            }
-            "water" -> {
-                resist3.setImageResource(R.drawable.water)
-                resist3.setBackgroundResource(R.drawable.circle_water)
-                txtResist3.text = getString(R.string.Water)
-            }
-            "ice" -> {
-                resist3.setImageResource(R.drawable.ice)
-                resist3.setBackgroundResource(R.drawable.circle_ice)
-                txtResist3.text = getString(R.string.Ice)
-            }
-            "grass" -> {
-                resist3.setImageResource(R.drawable.grass)
-                resist3.setBackgroundResource(R.drawable.circle_grass)
-                txtResist3.text = getString(R.string.Grass)
-            }
-            "poison" -> {
-                resist3.setImageResource(R.drawable.poison)
-                resist3.setBackgroundResource(R.drawable.circle_poison)
-                txtResist3.text = getString(R.string.Poison)
-            }
-            "fighting" -> {
-                resist3.setImageResource(R.drawable.fighting)
-                resist3.setBackgroundResource(R.drawable.circle_fighting)
-                txtResist3.text = getString(R.string.Fighting)
-            }
-            "rock" -> {
-                resist3.setImageResource(R.drawable.rock)
-                resist3.setBackgroundResource(R.drawable.circle_rock)
-                txtResist3.text = getString(R.string.Rock)
-            }
-            "flying" -> {
-                resist3.setImageResource(R.drawable.flying)
-                resist3.setBackgroundResource(R.drawable.circle_flying)
-                txtResist3.text = getString(R.string.Flying)
-            }
-            "dragon" -> {
-                resist3.setImageResource(R.drawable.dragon)
-                resist3.setBackgroundResource(R.drawable.circle_dragon)
-                txtResist3.text = getString(R.string.Dragon)
-            }
-            "electric" -> {
-                resist3.setImageResource(R.drawable.electric)
-                resist3.setBackgroundResource(R.drawable.circle_electric)
-                txtResist3.text = getString(R.string.Electric)
-            }
-            "bug" -> {
-                resist3.setImageResource(R.drawable.bug)
-                resist3.setBackgroundResource(R.drawable.circle_bug)
-                txtResist3.text = getString(R.string.Bug)
-            }
-            "psychic" -> {
-                resist3.setImageResource(R.drawable.psychic)
-                resist3.setBackgroundResource(R.drawable.circle_psychic)
-                txtResist3.text = getString(R.string.Psychic)
-            }
-            "ground" -> {
-                resist3.setImageResource(R.drawable.ground)
-                resist3.setBackgroundResource(R.drawable.circle_ground)
-                txtResist3.text = getString(R.string.Ground)
-            }
-            "fairy" -> {
-                resist3.setImageResource(R.drawable.fairy)
-                resist3.setBackgroundResource(R.drawable.circle_fairy)
-                txtResist3.text = getString(R.string.Fairy)
-            }
-            "dark" -> {
-                resist3.setImageResource(R.drawable.dark)
-                resist3.setBackgroundResource(R.drawable.circle_dark)
-                txtResist3.text = getString(R.string.Dark)
-            }
-            "ghost" -> {
-                resist3.setImageResource(R.drawable.ghost)
-                resist3.setBackgroundResource(R.drawable.circle_ghost)
-                txtResist3.text = getString(R.string.Ghost)
-            }
-            "steel" -> {
-                resist3.setImageResource(R.drawable.iron)
-                resist3.setBackgroundResource(R.drawable.circle_iron)
-                txtResist3.text = getString(R.string.Steel)
-            }
-            "normal" -> {
-                resist3.setImageResource(R.drawable.normal)
-                resist3.setBackgroundResource(R.drawable.circle_normal)
-                txtResist3.text = getString(R.string.Normal)
-            }
-        }
-
     }
 }
 

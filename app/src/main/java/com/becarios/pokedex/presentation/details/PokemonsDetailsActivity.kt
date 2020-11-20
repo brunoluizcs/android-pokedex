@@ -11,29 +11,43 @@ import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.details.fragments.AbilitiesFragments
 import com.becarios.pokedex.presentation.details.fragments.EvolutionFragment
 import com.becarios.pokedex.presentation.details.fragments.StatsFragment
+import com.becarios.pokedex.presentation.pokemons.EnumPoke
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_pokemons_details.*
+import util.Constant
 import java.util.*
 
 var idData = String()
 var typeData = String()
 
 class PokemonsDetailsActivity : AppCompatActivity() {
+    lateinit var pokemonType: EnumPoke
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemons_details)
 
         val name = intent.getStringExtra(EXTRA_NAME)
         val id = intent.getStringExtra(EXTRA_ID)
+        val idInt: Int = id?.toInt() ?: intent.getIntExtra(EXTRA_ID)
         val type = intent.getStringExtra(TYPE)
         val image = spritePoke
         var urlType = String()
         tituloToolbar.text = name.toString().capitalize(Locale.ROOT)
-        idPoke.text = ("#$id")
+
+        when {
+            idInt < 10 -> {
+                idPoke.text = ("#00${id}")
+            }
+            idInt in 10..99 -> {
+                idPoke.text = ("#0${id}")
+            }
+            else -> idPoke.text = ("#${id}")
+        }
+
+        idPoke.contentDescription = ("Número na pokedéx:$id")
         typePoke.text = type
-
-
         backButton.setOnClickListener {
             if (motionLayout.currentState == motionLayout.endState) {
                 motionLayout.transitionToStart()
@@ -54,7 +68,7 @@ class PokemonsDetailsActivity : AppCompatActivity() {
                         val fragLayout = StatsFragment.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
-                    1-> {
+                    1 -> {
                         val fragLayout = EvolutionFragment.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
@@ -62,183 +76,124 @@ class PokemonsDetailsActivity : AppCompatActivity() {
                         val fragLayout = AbilitiesFragments.newInstance(idData, typeData)
                         initFragment(fragLayout)
                     }
-
                 }
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab) {
-
             }
 
             override fun onTabReselected(tab: TabLayout.Tab) {
-
             }
         })
-
         when (type) {
-            "fire" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_fire)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.fire))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.fire),
-                    ContextCompat.getColor(this, R.color.whiteColor)
+            Constant.FIRE ->
+                setViewPokemon(
+                    EnumPoke.FIRE.color,
+                    EnumPoke.FIRE.typeName,
+                    EnumPoke.FIRE.fundoDrawable,
+                    EnumPoke.FIRE.typeDrawable
                 )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.fire))
-            }
-            "water" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_water)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.water))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.water),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.water))
-            }
-            "ice" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_ice)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.ice))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.ice),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.ice))
-            }
-            "grass" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_grass)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.grass))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.grass),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.grass))
-            }
-            "poison" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_poison)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.poison))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.poison),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.poison))
-            }
-            "fighting" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_fight)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.fight))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.fight),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.fight))
-            }
-            "rock" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_rock)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.rock))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.rock),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.rock))
-            }
-            "flying" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_flying)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.flying))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.flying),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.flying))
-            }
-            "electric" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_electric)
-                tabLayout.setSelectedTabIndicatorColor(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.electric
-                    )
-                )
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.electric),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.electric))
-            }
-            "bug" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_bug)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.bug))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.bug),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.bug))
-            }
-            "psychic" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_psychic)
-                tabLayout.setSelectedTabIndicatorColor(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.psychic
-                    )
-                )
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.psychic),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.psychic))
-            }
-            "ground" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_ground)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.ground))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.ground),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.ground))
-            }
-            "fairy" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_fairy)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.fairy))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.fairy),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.fairy))
-            }
-            "dark" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_dark)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.dark))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.dark),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.dark))
-            }
-            "ghost" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_ghost)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.ghost))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.ghost),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.ghost))
-            }
-            "steel" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_steel)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.steel))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.steel),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.steel))
-            }
-            "normal" -> {
-                typePoke.setBackgroundResource(R.drawable.fundo_normal)
-                tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.normal))
-                tabLayout.setTabTextColors(
-                    ContextCompat.getColor(this, R.color.normal),
-                    ContextCompat.getColor(this, R.color.whiteColor)
-                )
-                motionLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.normal))
-            }
+            Constant.WATER -> setViewPokemon(
+                EnumPoke.WATER.color,
+                EnumPoke.WATER.typeName,
+                EnumPoke.WATER.fundoDrawable,
+                EnumPoke.WATER.typeDrawable
+            )
+            Constant.ICE -> setViewPokemon(
+                EnumPoke.ICE.color,
+                EnumPoke.ICE.typeName,
+                EnumPoke.ICE.fundoDrawable,
+                EnumPoke.ICE.typeDrawable
+            )
+            Constant.GRASS -> setViewPokemon(
+                EnumPoke.GRASS.color,
+                EnumPoke.GRASS.typeName,
+                EnumPoke.GRASS.fundoDrawable,
+                EnumPoke.GRASS.typeDrawable
+            )
+            Constant.POISON -> setViewPokemon(
+                EnumPoke.POISON.color,
+                EnumPoke.POISON.typeName,
+                EnumPoke.POISON.fundoDrawable,
+                EnumPoke.POISON.typeDrawable
+            )
+            Constant.FIGHTING -> setViewPokemon(
+                EnumPoke.FIGHTING.color,
+                EnumPoke.FIGHTING.typeName,
+                EnumPoke.FIGHTING.fundoDrawable,
+                EnumPoke.FIGHTING.typeDrawable
+            )
+            Constant.ROCK -> setViewPokemon(
+                EnumPoke.ROCK.color,
+                EnumPoke.ROCK.typeName,
+                EnumPoke.ROCK.fundoDrawable,
+                EnumPoke.ROCK.typeDrawable
+            )
+            Constant.FLYING -> setViewPokemon(
+                EnumPoke.FLYING.color,
+                EnumPoke.FLYING.typeName,
+                EnumPoke.FLYING.fundoDrawable,
+                EnumPoke.FLYING.typeDrawable
+            )
+            Constant.ELECTRIC -> setViewPokemon(
+                EnumPoke.ELECTRIC.color,
+                EnumPoke.ELECTRIC.typeName,
+                EnumPoke.ELECTRIC.fundoDrawable,
+                EnumPoke.ELECTRIC.typeDrawable
+            )
+            Constant.DRAGON -> setViewPokemon(
+                EnumPoke.DRAGON.color,
+                EnumPoke.DRAGON.typeName,
+                EnumPoke.DRAGON.fundoDrawable,
+                EnumPoke.DRAGON.typeDrawable
+            )
+            Constant.BUG -> setViewPokemon(
+                EnumPoke.BUG.color,
+                EnumPoke.BUG.typeName,
+                EnumPoke.BUG.fundoDrawable,
+                EnumPoke.BUG.typeDrawable
+            )
+            Constant.PSYCHIC -> setViewPokemon(
+                EnumPoke.PSYCHIC.color,
+                EnumPoke.PSYCHIC.typeName,
+                EnumPoke.PSYCHIC.fundoDrawable,
+                EnumPoke.PSYCHIC.typeDrawable
+            )
+            Constant.GROUND -> setViewPokemon(
+                EnumPoke.GROUND.color,
+                EnumPoke.GROUND.typeName,
+                EnumPoke.GROUND.fundoDrawable,
+                EnumPoke.GROUND.typeDrawable
+            )
+            Constant.FAIRY -> setViewPokemon(
+                EnumPoke.FAIRY.color,
+                EnumPoke.FAIRY.typeName,
+                EnumPoke.FAIRY.fundoDrawable,
+                EnumPoke.FAIRY.typeDrawable
+            )
+            Constant.DARK -> setViewPokemon(
+                EnumPoke.DARK.color,
+                EnumPoke.DARK.typeName,
+                EnumPoke.DARK.fundoDrawable,
+                EnumPoke.DARK.typeDrawable
+            )
+            Constant.GHOST -> setViewPokemon(
+                EnumPoke.GHOST.color,
+                EnumPoke.GHOST.typeName,
+                EnumPoke.GHOST.fundoDrawable,
+                EnumPoke.GHOST.typeDrawable
+            )
+            Constant.STEEL -> setViewPokemon(
+                EnumPoke.STEEL.color,
+                EnumPoke.STEEL.typeName,
+                EnumPoke.STEEL.fundoDrawable,
+                EnumPoke.STEEL.typeDrawable
+            )
+            Constant.NORMAL -> setViewPokemon(
+                EnumPoke.NORMAL.color,
+                EnumPoke.NORMAL.typeName,
+                EnumPoke.NORMAL.fundoDrawable,
+                EnumPoke.NORMAL.typeDrawable
+            )
         }
 
         Glide.with(spritePoke)
@@ -246,6 +201,19 @@ class PokemonsDetailsActivity : AppCompatActivity() {
             .error(R.drawable.pokeboll)
             .centerCrop()
             .into(image)
+    }
+
+    fun setViewPokemon(color: Int, typeName: String, fundoPoke: Int, typeDrawable: Int) {
+        typePoke.setCompoundDrawablesWithIntrinsicBounds(typeDrawable, 0, 0, 0)
+        typePoke.contentDescription = "Pokemon do tipo $typeName"
+        typePoke.setBackgroundResource(fundoPoke)
+        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, color))
+        tabLayout.setTabTextColors(
+            ContextCompat.getColor(this, color),
+            ContextCompat.getColor(this, R.color.whiteColor)
+        )
+        motionLayout.setBackgroundColor(ContextCompat.getColor(this, color))
+
     }
 
     companion object {
@@ -263,7 +231,7 @@ class PokemonsDetailsActivity : AppCompatActivity() {
             }
         }
     }
-
 }
-
-
+private fun Intent.getIntExtra(extraId: String): Int {
+    return extraId.toInt()
+}

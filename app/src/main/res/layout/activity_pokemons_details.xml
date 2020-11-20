@@ -23,16 +23,16 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:focusable="true"
-        android:contentDescription="@string/back_button"
-        android:clickable="true"
         android:id="@+id/backButton"
-        android:layout_marginStart="@dimen/default_size_10_dp"
-        android:backgroundTint="@color/whiteColor"
-        android:background="@drawable/ic_arrow_back"
         android:layout_width="@dimen/default_size_12_dp"
         android:layout_height="@dimen/default_size_21_dp"
+        android:layout_marginStart="@dimen/default_size_10_dp"
         android:layout_marginTop="@dimen/default_size_16_dp"
+        android:background="@drawable/ic_arrow_back"
+        android:backgroundTint="@color/whiteColor"
+        android:clickable="true"
+        android:contentDescription="@string/back_button"
+        android:focusable="true"
         android:rotation="-90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,10 +48,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:accessibilityHeading="true"
         android:id="@+id/tituloToolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:accessibilityHeading="true"
         android:fontFamily="@font/avenirbook"
         android:textColor="@color/colorSubTitle"
         android:textSize="@dimen/default_text_40_sp"
@@ -60,11 +60,10 @@
         app:layout_constraintTop_toBottomOf="@+id/spritePoke" />
 
     <TextView
-        android:contentDescription="@string/pokedex_number"
-
         android:id="@+id/idPoke"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/pokedex_number"
         android:fontFamily="@font/avenirbook"
         android:textColor="@color/colorPokeID"
         android:textSize="@dimen/default_text_15_sp"
@@ -79,7 +78,7 @@
         android:layout_width="@dimen/default_size_110_dp"
         android:layout_height="@dimen/default_size_30_dp"
         android:layout_marginTop="@dimen/default_size_22_dp"
-        android:drawableStart="@drawable/ic_water"
+        android:contentDescription="pokemon do tipo:"
         android:drawablePadding="@dimen/default_size_7_dp"
         android:fontFamily="@font/avenirbook"
         android:gravity="center"
@@ -101,6 +100,7 @@
         android:layout_marginStart="@dimen/default_size_40_dp"
         android:layout_marginTop="@dimen/default_size_28_dp"
         android:layout_marginEnd="@dimen/default_size_40_dp"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/typePoke"
@@ -109,9 +109,11 @@
         app:tabIndicatorColor="@color/water"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="stretch"
-        app:tabMode="fixed">
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/whiteColor">
 
         <com.google.android.material.tabs.TabItem
+
             android:id="@+id/tabStats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

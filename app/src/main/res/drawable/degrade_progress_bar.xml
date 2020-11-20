@@ -3,10 +3,6 @@
     <item>
         <clip>
             <shape>
-                <gradient
-                    android:endColor="#559EDF"
-                    android:startColor="#8ECDF1"
-                    android:type="linear" />
                 <corners android:radius="90dp" />
             </shape>
         </clip>

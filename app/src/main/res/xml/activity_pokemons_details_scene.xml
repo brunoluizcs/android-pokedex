@@ -136,11 +136,7 @@
             android:clickable="true"
             android:rotation="-90"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent">
-            <OnClick
-                motion:targetId="@id/backButton"
-                motion:clickAction="transitionToStart" />
-        </Constraint>
+            motion:layout_constraintTop_toTopOf="parent"/>
 
         <Constraint
             android:id="@+id/fundoPrincipal"
