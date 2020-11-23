@@ -18,8 +18,7 @@ class PokemonAdapter(
     RecyclerView.Adapter<PokemonAdapter.PokemonsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonsViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.pokemon_recycler_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.pokemon_recycler_item, parent, false)
         return PokemonsViewHolder(view, onItemClickListener)
     }
 
@@ -29,9 +28,7 @@ class PokemonAdapter(
 
     override fun getItemCount() = pokemons.count()
 
-    class PokemonsViewHolder(
-        itemView: View, private val onItemClickListener:
-        ((pokemon: Pokemons) -> Unit)
+    class PokemonsViewHolder(itemView: View, private val onItemClickListener: ((pokemon: Pokemons) -> Unit)
     ) : RecyclerView.ViewHolder(itemView) {
         private val name = itemView.txt_pokemon_name
         private val id = itemView.txt_pokemon_id

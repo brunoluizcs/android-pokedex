@@ -1,4 +1,4 @@
-package com.becarios.pokedex.presentation.pokemons
+package com.becarios.pokedex.presentation.details.fragments
 
 import com.becarios.pokedex.R
 import util.convertString

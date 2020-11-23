@@ -13,27 +13,45 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PokemonService {
-    @GET("pokemon/{pokemonId}") fun getPokemonId(@Path("pokemonId") pokemonId: String
-    ): Call<PokemonIdResult>
 
-    @GET("pokemon/{pokemonId}") fun getPokemonsId(@Path("pokemonId") pokemonId: Int
-    ): Call<PokemonRootResponse>
+    @GET("pokemon/{pokemonId}")
+    suspend fun getPokemonsById(
+        @Path("pokemonId") pokemonId: Int
+    ): PokemonRootResponse
 
-    @GET("pokemon/{pokemonId}") fun getStats(@Path("pokemonId") pokemonId: String
+    @GET("pokemon/{pokemonId}")
+    suspend fun getPokemonById(
+        @Path("pokemonId") pokemonId: String
+    ): PokemonIdResult
+
+    @GET("pokemon/{pokemonId}")
+    fun getStats(
+        @Path("pokemonId") pokemonId: String
     ): Call<PokemonStats>
 
-    @GET("type/{typeId}") fun getDamage(@Path("typeId") typeId: Int
+    @GET("type/{typeId}")
+    fun getDamage(
+        @Path("typeId") typeId: Int
     ): Call<DamageBody>
 
-    @GET("pokemon/{pokemonId}") fun getAbilities(@Path("pokemonId") pokemonId: String
+    @GET("pokemon/{pokemonId}")
+    fun getAbilities(
+        @Path("pokemonId") pokemonId: String
     ): Call<PokemonAbilities>
 
-    @GET("ability/{Id}") fun getDescription(@Path("Id") Id: String
+    @GET("ability/{Id}")
+    fun getDescription(
+        @Path("Id") Id: String
     ): Call<PokemonDescription>
 
-    @GET("pokemon-species/{Id}") fun getSpecies(@Path("Id") Id: String
+    @GET("pokemon-species/{Id}")
+    fun getSpecies(
+        @Path("Id") Id: String
     ): Call<EvolutionChainBody>
 
-    @GET("evolution-chain/{Id}") fun getEvolution(@Path("Id") Id: String
+    @GET("evolution-chain/{Id}")
+    fun getEvolution(
+        @Path("Id") Id: String
     ): Call<Chain>
+
 }

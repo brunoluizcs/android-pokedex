@@ -12,8 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.becarios.pokedex.R
-import com.becarios.pokedex.presentation.pokemons.DamageViewModel
-import com.becarios.pokedex.presentation.pokemons.EnumPoke
 import kotlinx.android.synthetic.main.fragment_stats.*
 import java.util.*
 

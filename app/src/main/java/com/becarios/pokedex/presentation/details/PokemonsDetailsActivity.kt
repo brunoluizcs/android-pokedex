@@ -11,7 +11,7 @@ import com.becarios.pokedex.R
 import com.becarios.pokedex.presentation.details.fragments.AbilitiesFragments
 import com.becarios.pokedex.presentation.details.fragments.EvolutionFragment
 import com.becarios.pokedex.presentation.details.fragments.StatsFragment
-import com.becarios.pokedex.presentation.pokemons.EnumPoke
+import com.becarios.pokedex.presentation.details.fragments.EnumPoke
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_pokemons_details.*

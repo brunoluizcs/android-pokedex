@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 30
@@ -30,6 +32,10 @@ ext {
     glideVersion = "4.11.0"
     retrofitVersion = "2.6.0"
     moshiVersion = "1.9.3"
+    coroutines_android_version = '1.3.2'
+    lifecycle_version = '2.1.0'
+    coroutines_android_version = '1.3.2'
+    truth_version = '1.0'
 }
 
 dependencies {
@@ -55,7 +61,7 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     //junit test
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
@@ -65,8 +71,23 @@ dependencies {
 
     //Material Design
     implementation 'com.google.android.material:material:1.2.1'
-
     implementation 'com.github.GrenderG:Toasty:1.2.5'
 
+    //Mocck
+    testImplementation 'io.mockk:mockk:1.10.2'
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version"
+
+    //Test
+    testImplementation "com.google.truth:truth:$truth_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_android_version"
+    testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
 }
