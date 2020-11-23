@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "397205677471",
+    "firebase_url": "https://pokedex-22dd6.firebaseio.com",
+    "project_id": "pokedex-22dd6",
+    "storage_bucket": "pokedex-22dd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397205677471:android:b9dc2ae9e64b75320289aa",
+        "android_client_info": {
+          "package_name": "com.becarios.pokedex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397205677471-ujv5gk56ilv2qe41mkscdc8ok06q4j8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsXhnTf5f7q-hswrj6X2e_jotiRgbemT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397205677471-ujv5gk56ilv2qe41mkscdc8ok06q4j8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
